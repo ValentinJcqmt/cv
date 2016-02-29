@@ -10,18 +10,10 @@ use App\DadAutoReader;
 
 class NewCarController extends Controller {
 
-    public function display(Request $request)
+    public function display(DadAutoReader $reader)
     {
-        if (!$request->page) {
-            $page = 1;
-        } else {
-            $page = $request->page;
-        }
-
-        $reader = new DadAutoReader();
-        $datas = $reader->get($page);
+        $datas = $reader->get();
 
         return view('neuf.index-new')->with('datas', $datas);
-
     }
 }
