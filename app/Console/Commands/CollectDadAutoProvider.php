@@ -39,9 +39,8 @@ class CollectDadAutoProvider extends Command {
         //Set the world
         $this->url = 'http://www.dad-auto.fr/liste.php';
         $this->urlImages = 'http://www.dad-auto.fr/gallery/';
-        $this->path = 'public/assets/providers/dad-auto/';
-        $this->pathJson = 'public/assets/providers/dad-auto/list.json';
-        $this->pathImage = 'public/assets/providers/dad-auto/images/';
+        $this->pathJson = '/list.json';
+        $this->pathImage = '/images/';
         parent::__construct();
     }
 
@@ -72,7 +71,7 @@ class CollectDadAutoProvider extends Command {
      */
     private function cleanCurrentDirectory($carId)
     {
-        return Storage::deleteDirectory($this->pathImage.$carId);
+        return Storage::disk('dad-auto-public')->deleteDirectory($this->pathImage.$carId);
     }
 
     /**
@@ -93,7 +92,7 @@ class CollectDadAutoProvider extends Command {
      */
     private function storeFile($file)
     {
-        return Storage::put($this->pathJson, $file);
+        return Storage::disk('dad-auto')->put($this->pathJson, $file);
     }
 
     /**
@@ -101,7 +100,7 @@ class CollectDadAutoProvider extends Command {
      */
     private function processImages()
     {
-        $cars = json_decode(Storage::get($this->pathJson));
+        $cars = json_decode(Storage::disk('dad-auto')->get($this->pathJson));
 
         foreach ($cars as $car) {
             $this->cleanCurrentDirectory($car->id);
@@ -128,8 +127,8 @@ class CollectDadAutoProvider extends Command {
      */
     private function storeImages($image, $carId, $i)
     {
-        Storage::makeDirectory($this->pathImage.$carId);
-        Storage::put($this->pathImage.$carId.'/'.$i.'.png', $image);
+        Storage::disk('dad-auto-public')->makeDirectory($this->pathImage.$carId);
+        Storage::disk('dad-auto-public')->put($this->pathImage.$carId.'/'.$i.'.png', $image);
     }
 
     /**
@@ -138,7 +137,7 @@ class CollectDadAutoProvider extends Command {
      */
     private function removeOldImages()
     {
-        $directories = Storage::allDirectories($this->pathImage);
+        $directories = Storage::disk('dad-auto-public')->allDirectories($this->pathImage);
         $olds = array();
         $news = array();
 
@@ -148,7 +147,7 @@ class CollectDadAutoProvider extends Command {
             $olds[] = array_pop($infos);
         }
 
-        $json = json_decode(Storage::get($this->pathJson));
+        $json = json_decode(Storage::disk('dad-auto')->get($this->pathJson));
 
         //Format array for new cars
         foreach($json as $car){
@@ -160,7 +159,7 @@ class CollectDadAutoProvider extends Command {
 
         //Delete all diff files
         foreach($diffs as $diff){
-            Storage::deleteDirectory($this->pathImage.$diff);
+            Storage::disk('dad-auto-public')->deleteDirectory($this->pathImage.$diff);
         }
     }
 }
