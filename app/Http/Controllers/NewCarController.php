@@ -10,10 +10,20 @@ use App\DadAutoReader;
 
 class NewCarController extends Controller {
 
-    public function display(DadAutoReader $reader)
-    {
-        $datas = $reader->get();
+    protected $reader;
 
-        return view('neuf.index-new')->with('datas', $datas);
+    public function __construct(DadAutoReader $reader)
+    {
+        $this->reader = $reader;
+    }
+
+    public function display()
+    {
+        return view('neuf.index-new')->with('datas', $this->reader->get());
+    }
+
+    public function show($id)
+    {
+        return view('neuf.show-new')->with('datas', $this->reader->show($id));
     }
 }

@@ -7,17 +7,31 @@ use Illuminate\Support\Facades\Storage;
 
 class DadAutoReader {
 
+    protected $source;
+
+    public function __construct()
+    {
+        $this->source = $this->loadSource();
+    }
+
     public function get()
     {
         $page = Input::get('page', 1);
         $perPage = 15;
-        $dadAuto = Storage::get('public/assets/providers/dad-auto/list.json');
-
-        $datas = json_decode($dadAuto, 1);
         $offSet = ($page * $perPage) - $perPage;
 
-        $paginator = new LengthAwarePaginator(array_slice($datas, $offSet, $perPage, true), count($datas), $perPage);
+        $paginator = new LengthAwarePaginator(array_slice($this->source, $offSet, $perPage, true), count($this->source), $perPage);
 
         return $paginator;
+    }
+
+    public function show($id)
+    {
+        return $this->source[$id];
+    }
+
+    private function loadSource()
+    {
+        return json_decode(Storage::get('public/assets/providers/dad-auto/list.json'), 1);
     }
 }

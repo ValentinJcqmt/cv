@@ -19,6 +19,7 @@ Route::get('/', function () {
  * New Cars
  */
 Route::get('new-cars', ['uses' => 'NewCarController@display']);
+Route::get('new-cars/{id}', ['uses' => 'NewCarController@show']);
 
 /*
 |--------------------------------------------------------------------------
