@@ -22,6 +22,11 @@ Route::get('new-cars', ['uses' => 'NewCarController@display']);
 Route::get('new-cars/{id}', ['uses' => 'NewCarController@show']);
 
 /*
+ * Mails
+ */
+Route::post('send-mail-for-car', ['uses' => 'MailsController@sendCarMail']);
+
+/*
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
