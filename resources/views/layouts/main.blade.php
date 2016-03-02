@@ -4,22 +4,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="{{ elixir('assets/css/all.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
     <body>
         <header>
              @include('layouts.header')
         </header>
         <div class="container">
-            <div class="col s12">
-                @yield('content')
+            <div class="row">
+                <div class="col m12">
+                    @yield('content')
+                </div>
             </div>
         </div>
-        <footer>
+        <footer class="page-footer blue-grey darken-3">
             @include('layouts.footer')
-
-            @push('scripts')
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
         </footer>
     </body>
 </html>

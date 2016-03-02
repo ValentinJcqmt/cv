@@ -1,4 +1,3 @@
-
 <div class="col s12">
     <div class="navbar-fixed">
         <ul id="dropdown1" class="dropdown-content">
@@ -13,13 +12,13 @@
           <li><a href="#!">Conditions CG Occasion</a></li>
           <li><a href="#!">FAQ Bonus/Malus écologique</a></li>
         </ul>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Concept Automobile</a>
+        <nav style="margin-top:-25px;">
+            <div class="nav-wrapper  blue-grey darken-3">
+                <a href="{{ url('/') }}" class="brand-logo">Concept Automobile</a>
                 <ul class="right hide-on-med-and-down">
                     <li class="active"><a href="collapsible.html">Accueil</a></li>
                     <li><a href="">Configurateur</a></li>
-                    <li><a href="">Véhicules Neufs & Utilitaires en Stock</a></li>
+                    <li><a href="{{ URL::to('new-cars') }}">Véhicules Neufs & Utilitaires en Stock</a></li>
                     <li><a href="">Véhicules Occasions</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Informations Pratiques</a></li>
                 </ul>
@@ -30,13 +29,12 @@
         </nav>
     </div>
 </div>
-<div class="col s12">
+<div class="col s12" style="margin-top:-25px;">
     <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper  blue-grey darken-3">
             <div class="col s12">
             <a href="#!" class="breadcrumb">Home</a>
-            <a href="#!" class="breadcrumb">Second</a>
-            <a href="#!" class="breadcrumb">Third</a>
+
             </div>
         </div>
     </nav>
@@ -45,4 +43,5 @@
     setTimeout(() => {
         document.getElementById('progress-main').setAttribute('class', 'hide');
     }, 1000);
+
 </script>
