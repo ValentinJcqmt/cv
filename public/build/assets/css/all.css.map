@@ -1,1 +1,1 @@
-{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA;AACA","file":"all.css","sourcesContent":[".test{color:red;}\n"],"sourceRoot":"/source/"}
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA","file":"all.css","sourcesContent":[".margin-right-5{margin-right:5px;}"],"sourceRoot":"/source/"}
