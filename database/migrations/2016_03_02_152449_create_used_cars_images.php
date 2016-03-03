@@ -14,8 +14,8 @@ class CreateUsedCarsImages extends Migration
     {
         Schema::create('used_cars_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('used_car_id');
-            $table->string('link');
+            $table->integer('used_car_id')->index();
+            $table->string('path');
             $table->string('hash');
             $table->timestamps();
         });
