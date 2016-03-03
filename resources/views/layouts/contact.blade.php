@@ -1,40 +1,52 @@
 <div class="row" >
     <div class="col m12">
-        <ul class="collapsible popout" data-collapsible="accordion" style="margin-top:40px;">
-            <li>
-                <div class="collapsible-header" style="height:60px;">
-                    <div class="col m11">
-                        <h3 class="grey-text text-grey darken-4" style="margin:8px;">
-                            Nous contacter concernant ce véhicule
-                        </h3>
-                    </div>
-                    <div class="col m1 right-align" style="margin-top:10px;">
-                        <i class="fa fa-arrow-down grey-text text-grey darken-4"></i>
-                    </div>
-                </div>
 
-                <div class="collapsible-body">
-                    <form class="">
-                        <div class="input-field">
-                            <input id="last_name " type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
-                        <div class="input-field">
-                            <input id="last_name " type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
-
-                        <div class="input-field">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="input-field">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Textarea</label>
-                        </div>
-                    </form>
+        <div class="card-panel teal lighten-2">
+            <h5 style="color:white;">Nous contacter concernant ce véhicule</h5>
+        </div>
+        @if (count($errors) > 0)
+            @foreach ($errors->all() as $error)
+                <div class="chip red darken-1" style="color:white;">
+                    {{ $error }}
                 </div>
-            </li>
-        </ul>
+            @endforeach
+        @endif
+        @if (session()->has('success'))
+        <script type="text/javascript">
+            setTimeout(function() {
+                var $success = $('<span >Votre message a bien été envoyé!</span>');
+                Materialize.toast($success, 6000, 'success-class');
+            }, 1000);
+        </script>
+        @endif
+        <?php echo Form::open(array('action' => 'MailsController@sendCarMail', 'method' => 'put')); ?>
+        <div class="col m6">
+            <?php echo Form::text('first_name'); ?>
+            <?php echo Form::label('first_name', 'Prenom'); ?>
+        </div>
+        <div class="col m6">
+            <?php echo Form::text('last_name'); ?>
+            <?php echo Form::label('last_name', 'Nom de famille'); ?>
+        </div>
+        <div class="col m6">
+            <?php echo Form::text('phone_number'); ?>
+            <?php echo Form::label('phone_number', 'Numéro de téléphone'); ?>
+        </div>
+        <div class="col m6">
+            <?php echo Form::text('email'); ?>
+            <?php echo Form::label('email', 'Email'); ?>
+        </div>
+        <div class="col m6">
+            <?php echo Form::textarea('message'); ?>
+            <?php echo Form::label('message', 'Message'); ?>
+        </div>
+            <?php echo Form::hidden('car_id', $datas['id']); ?>
+            <?php echo Form::hidden('provider', 'dad-auto'); ?>
+            <?php echo Form::hidden('slug', $datas['marque'].'-'.$datas['modele']); ?>
+        <div class="col m12">
+            <?php echo Form::submit('Envoyer la demande', array('class' => 'waves-effect waves-light btn button-contact')); ?>
+        </div>
+
+    <?php echo Form::close(); ?>
     </div>
 </div>

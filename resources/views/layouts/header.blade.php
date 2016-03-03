@@ -29,16 +29,7 @@
         </nav>
     </div>
 </div>
-<div class="col s12" style="margin-top:-25px;">
-    <nav>
-        <div class="nav-wrapper  blue-grey darken-3">
-            <div class="col s12">
-            <a href="#!" class="breadcrumb">Home</a>
 
-            </div>
-        </div>
-    </nav>
-</div>
 <script type="text/javascript">
     setTimeout(() => {
         document.getElementById('progress-main').setAttribute('class', 'hide');

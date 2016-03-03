@@ -12,12 +12,13 @@ class MailsController extends Controller {
 
     public function __construct()
     {
-        $this->destinationMail = 'guillaume.valadas@gmail.com';
+        $this->destinationMail = 'aymeric.aveline@gmail.com';
     }
 
     public function sendCarMail(SendMailRequest $request)
     {
-        $car = $this->getCarDatas($request->provider, $request->car_id);
+
+        $car = $this->getCarDatas($request->provider, $request->car_id, $request->slug);
 
         $datas = array_merge($car, array_except($request->all(), ['car_id', 'email_confirmation']));
 
@@ -26,14 +27,15 @@ class MailsController extends Controller {
 
             $m->to($this->destinationMail)->subject('Demande de contact pour un véhicule');
         });
+        return redirect()->back()->with('success', ['success']);
     }
 
-    private function getCarDatas($provider, $carId)
+    private function getCarDatas($provider, $carId, $slug)
     {
         switch ($provider) {
             case 'dad-auto':
                 $dad = new DadAutoReader();
-                return $dad->show($carId);
+                return $dad->show($slug, $carId);
                 break;
             case 'selsia':
                 break;

@@ -28,12 +28,14 @@ class SendMailRequest extends Request {
             'first_name'   => 'required|string|max:20|min:3',
             'last_name'    => 'required|string|max:20|min:3',
             'phone_number' => 'required|numeric',
-            'email'        => 'required|confirmed|email',
+            'email'        => 'required|email',
             'message'      => 'required|min:3',
 
             //request need
             'car_id'       => 'required|integer',
-            'provider'     => 'required|in:dad-auto,selsia'
+            'provider'     => 'required|in:dad-auto,selsia',
+            //Need slug in order to display correct redirection
+            'slug'         => 'required|string'
         ];
     }
 }

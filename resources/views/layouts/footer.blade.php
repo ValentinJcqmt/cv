@@ -2,7 +2,13 @@
     <div class="row">
         <div class="col l6 s12">
             <h5 class="white-text">Contenu du footer</h5>
-            <p class="grey-text text-lighten-4">contact@conceptautomobile.fr</p>
+            <blockquote class="grey-text text-lighten-4">
+                Les véhicules neufs ou occasions proposés par nos fournisseurs peuvent être soumis au bonus comme au malus gouvernemental.
+                Les prix indiqués sur nos sites ne tiennent pas compte du bonus / malus, que vous devrez déduire ou rajouter.
+                Vous trouverez à titre d'information sur chaque fiche de véhicule le taux de Co2 émis et à titre indicatif le Bonus / Malus généré.
+                Neuf ou d'occasion, aucun véhicule n'est à récupérer dans nos locaux.
+                N'hésitez pas à nous contacter pour toute précision ou demande de renseignement complémentaire.
+            </blockquote>
         </div>
         <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Rubriques les plus populaires</h5>
@@ -17,7 +23,7 @@
 </div>
 <div class="footer-copyright">
     <div class="container">
-        <h5 class="center-align">Concept Automobile @ Voleurs and Co</h5>
+        <h5 class="center-align">contact@conceptautomobile.fr</h5>
     </div>
 </div>
 @push('scripts')

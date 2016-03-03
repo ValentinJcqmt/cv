@@ -4,10 +4,16 @@
 <?php
 
 $directory = base_path().'/public/assets/providers/dad-auto/images/'.$datas['id'];
+$allDirectories = glob(base_path().'/public/assets/providers/dad-auto/images' . '/*' , GLOB_ONLYDIR);
 
-$files = File::allFiles($directory);
 
+$findCurrentFolder = array_search($directory, $allDirectories);
+
+if (isset($findCurrentFolder) && $findCurrentFolder !== false)
+    $files = File::allFiles($directory);
 ?>
+
+{!! Breadcrumbs::render('show-one-new-car', $datas) !!}
     <div class="row">
         <div class="col s12 m6">
             <div class="card blue-grey darken-1">
@@ -69,9 +75,12 @@ $files = File::allFiles($directory);
 
     <div class="col m12">
         <div class="owl-carousel">
-            @for($i = 1; $i <= count($files); $i++)
-                <div class="item" ><a class="carousel-item" href="#one!"><img src="{{ url('assets/providers/dad-auto/images') }}/{{ $datas['id'] }}/{{ $i }}.png"></a></div>
-            @endfor
+
+            @if(isset($findCurrentFolder) && $findCurrentFolder !== false)
+                @for($i = 1; $i <= count($files); $i++)
+                    <div class="item" ><a class="carousel-item" href="#one!"><img src="{{ url('assets/providers/dad-auto/images') }}/{{ $datas['id'] }}/{{ $i }}.png"></a></div>
+                @endfor
+            @endif
         </div>
     </div>
 

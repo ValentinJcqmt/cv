@@ -22,8 +22,13 @@ class NewCarController extends Controller {
         return view('neuf.index-new')->with('datas', $this->reader->get());
     }
 
-    public function show($id)
+    public function show($slug, $id)
     {
-        return view('neuf.show-new')->with('datas', $this->reader->show($id));
+        return view('neuf.show-new')->with('datas', $this->reader->show($slug, $id));
+
+    }
+    public function sendCarMail() {
+
+        return view('layouts.contact');
     }
 }

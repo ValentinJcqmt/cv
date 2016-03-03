@@ -11,20 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'home', function () {
     return view('home');
-});
-
-/*
- * New Cars
- */
-Route::get('new-cars', ['uses' => 'NewCarController@display']);
-Route::get('new-cars/{id}', ['uses' => 'NewCarController@show']);
-
-/*
- * Mails
- */
-Route::post('send-mail-for-car', ['uses' => 'MailsController@sendCarMail']);
+}]);
 
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +27,11 @@ Route::post('send-mail-for-car', ['uses' => 'MailsController@sendCarMail']);
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+
+    Route::get('voitures-neuves', ['as' => 'new-cars', 'uses' => 'NewCarController@display']);
+    Route::get('voitures-neuves/{slug}/{id}', ['as' => 'show-one-new', 'uses' => 'NewCarController@show']);
+    /*
+     * Mails
+     */
+    Route::put('send-mail-for-car', ['uses' => 'MailsController@sendCarMail']);
 });
