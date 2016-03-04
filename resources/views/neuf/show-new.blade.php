@@ -1,3 +1,4 @@
+@section('title', $datas['marque'].' '.$datas['modele'])
 @extends('layouts.main')
 
 @section('content')
