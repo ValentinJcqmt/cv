@@ -1,4 +1,4 @@
-
+@section('title', 'Voitures neuves')
 @extends('layouts.main')
 
 @section('content')
