@@ -17,6 +17,18 @@ class NewCarController extends Controller {
         $this->reader = $reader;
     }
 
+    public function home()
+    {
+        return view('home')->with('datas', $this->reader->get());
+    }
+    public function renderHomeNew()
+    {
+        return view('neuf.home-new');
+    }
+    public function renderHomeOccasion()
+    {
+        return view('occasion.home-occasion');
+    }
     public function display()
     {
         return view('neuf.index-new')->with('datas', $this->reader->get());

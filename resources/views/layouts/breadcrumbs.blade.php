@@ -1,9 +1,9 @@
 @if ($breadcrumbs)
-    <div class="row" style="">
+    <div class="row">
         <div class="col s12">
         @foreach ($breadcrumbs as $breadcrumb)
             @if (!$breadcrumb->last)
-                <a href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a> <span class="blue-text text-darken-2"> > </span>
+                <a class="blue-grey-text text-blue-grey" href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a> <span class="blue-grey-text text-blue-grey"> > </span>
             @else
                 <a href="">{{ $breadcrumb->title }}</a>
             @endif

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', ['as' => 'home', function () {
-    return view('home');
-}]);
+Route::get('/', ['as' => 'home', 'uses' => 'NewCarController@home']);
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +25,7 @@ Route::get('/', ['as' => 'home', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-
+    //Neuf
     Route::get('voitures-neuves', ['as' => 'new-cars', 'uses' => 'NewCarController@display']);
     Route::get('voitures-neuves/{slug}/{id}', ['as' => 'show-one-new', 'uses' => 'NewCarController@show']);
     /*

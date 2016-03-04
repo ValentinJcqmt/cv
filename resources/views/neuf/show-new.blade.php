@@ -78,7 +78,11 @@ if (isset($findCurrentFolder) && $findCurrentFolder !== false)
 
             @if(isset($findCurrentFolder) && $findCurrentFolder !== false)
                 @for($i = 1; $i <= count($files); $i++)
-                    <div class="item" ><a class="carousel-item" href="#one!"><img src="{{ url('assets/providers/dad-auto/images') }}/{{ $datas['id'] }}/{{ $i }}.png"></a></div>
+                    <div class="item" >
+                        <a class="carousel-item" href="#one!">
+                            <img src="{{ url('assets/providers/dad-auto/images') }}/{{ $datas['id'] }}/{{ $i }}.png" alt="{{ $datas['marque'] }}-{{ $datas['modele'] }}">
+                        </a>
+                    </div>
                 @endfor
             @endif
         </div>

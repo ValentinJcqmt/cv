@@ -19,9 +19,9 @@
 
                 ?>
                 @if($file)
-                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/{{ $car['id'] }}/1.png">
+                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/{{ $car['id'] }}/1.png" alt="{{ $car['marque'] }}-{{ $car['modele'] }}">
                 @else
-                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/default/default.jpg">
+                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/default/default.jpg" alt="{{ $car['marque'] }}-{{ $car['modele'] }}">
                 @endif
 
                 </div>
@@ -31,8 +31,9 @@
                     </span>
                 </div>
                 <div class="card-reveal">
+
                     <span class="card-title grey-text text-darken-4">{{ $car['marque'] }} {{ $car['modele'] }}<i class="material-icons right">X</i></span>
-                    <a class="waves-effect waves-light btn" href="{{ URL::to('voitures-neuves') }}/{{ $car['marque'] }}-{{ $car['modele'] }}/{{ $car['id'] }}" style="margin-top:150px;">En savoir plus</a>
+                    <a class="waves-effect waves-light btn" href="{{ URL::to('voitures-neuves') }}/{{ str_slug($car['marque'], '-') }}-{{ str_slug($car['modele'], '-') }}-{{ str_slug($car['edition'], '-') }}/{{ $car['id'] }}" style="margin-top:150px;">En savoir plus</a>
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li class="active"><a href="collapsible.html">Accueil</a></li>
                     <li><a href="">Configurateur</a></li>
-                    <li><a href="{{ URL::to('new-cars') }}">Véhicules Neufs & Utilitaires en Stock</a></li>
+                    <li><a href="{{ URL::to('voitures-neuves') }}">Véhicules Neufs & Utilitaires en Stock</a></li>
                     <li><a href="">Véhicules Occasions</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Informations Pratiques</a></li>
                 </ul>
