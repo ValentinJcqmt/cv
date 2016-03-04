@@ -25,7 +25,7 @@ class DadAutoReader {
         return $paginator;
     }
 
-    public function show($slug, $id)
+    public function show($id)
     {
         return $this->source[$id];
     }
