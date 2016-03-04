@@ -28,6 +28,9 @@ Route::group(['middleware' => ['web']], function () {
     //Neuf
     Route::get('voitures-neuves', ['as' => 'new-cars', 'uses' => 'NewCarController@display']);
     Route::get('voitures-neuves/{slug}/{id}', ['as' => 'show-one-new', 'uses' => 'NewCarController@show']);
+    //Occasions
+    Route::get('voitures-occasions', ['as' => 'used-cars', 'uses' => 'UsedCarsController@display']);
+    Route::get('voitures-occasions/{slug}/{id}', ['as' => 'show-one-used', 'uses' => 'UsedCarsController@show']);
     /*
      * Mails
      */
