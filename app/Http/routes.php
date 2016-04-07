@@ -17,6 +17,14 @@ Route::get('creations', 'CvController@creation');
 
 Route::get('cv', 'CvController@cv');
 
+Route::post('/', 'CvController@mail');
+
 Route::get('creations/touitteur', 'TouitteurController@home');
 
-Route::post('/', 'CvController@mail');
+Route::get('creations/touitteur/del/{id}', 'TouitteurController@delete');
+
+Route::get('creations/touitteur/plus/{id}', 'TouitteurController@addPlus');
+
+Route::get('creations/touitteur/moins/{id}', 'TouitteurController@addMoins');
+
+Route::post('creations/touitteur', 'TouitteurController@addTouit');

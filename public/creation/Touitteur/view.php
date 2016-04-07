@@ -15,8 +15,7 @@
 		<article>
 			<span class="date">
 				<?
-					echo $row['quand'];
-					echo $row['heure'];
+					echo $row['date'];
 				?>
 			</span>
 			<a href="controler.php?del=<?echo $row['id'];?>" class="deleteCross">
