@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CvController@home');
+
+Route::get('creations', 'CvController@creation');
+
+Route::get('cv', 'CvController@cv');
+
+Route::get('creations/touitteur', 'TouitteurController@home');
+
+Route::post('/', 'CvController@mail');
