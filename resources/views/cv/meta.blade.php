@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="icon" type="image/png" href="storage_path('img/favicon.png')">
+<link rel="icon" type="image/css" href="assets/img/favicon.png">
 <style type="text/css">1
 	@font-face {font-family: "Mohave"; src: storage_path('font/Mohave.ttf');}
 
@@ -70,20 +70,14 @@
 	.link-nav{
 		font-size: 18pt;
 		font-weight: bold;
-		border-top: solid 2px white !important;
-		border-bottom: solid 2px white !important;
-		border-right: 0 !important;
-		border-left: 0 !important;
+		border: none !important;
 		border-radius: 0 !important;
 	}
 	.link-nav:hover{
 		background-color: rgba(255,255,255,0.1) !important;
 		padding: 8px 15px !important;
-		border: none;
 		color: white;
 		width: default;
-		border-top: solid 4px white !important;
-		border-bottom: solid 4px white !important;
 	}
 
 	header{

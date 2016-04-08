@@ -10,7 +10,7 @@
 					<p class="text-justify">
 						Projet scolaire en équipe de 3. Création d'un site vitrine/portfolio pour un auteur et réalisateur de pièces de théatre. Dans ce projet j'ai eu pout tâche de créer la navigation du site (menu, flèches contextuelles et touches fléchées) et l'affichage du descriptif de chaque livre et pièce de théâtre. Les scripts de ce site sont uniquement écrits en Javascript.
 						<br>
-						<a href="portfolioJS" class="btn btn-default custom-proj-btn" target="_blank">► Voir le projet</a>
+						<a href="creations/portfolioJS" class="btn btn-default custom-proj-btn" target="_blank">► Voir le projet</a>
 					</p>
 				</div>
 			</div>
@@ -36,7 +36,7 @@
 					<p class="text-justify">
 						Application canvas. Génération de tracès similaires à des éclairs. Présence d'une interface "dat.gui" et traitement des informations rentrées par l'utilisateur en JavaScript. Gestion de la couleur, de la direction, de la vitesse, etc...
 						<br>
-						<a href="LightningCanvas" class="btn btn-default custom-proj-btn" target="_blank">► Voir le projet</a>
+						<a href="creations/lightningCanvas" class="btn btn-default custom-proj-btn" target="_blank">► Voir le projet</a>
 					</p>
 				</div>
 			</div>

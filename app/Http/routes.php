@@ -19,6 +19,16 @@ Route::get('cv', 'CvController@cv');
 
 Route::post('/', 'CvController@mail');
 
+
+
+Route::get('creations/portfolioJS', 'PortfolioJSController@home');
+
+
+
+Route::get('creations/lightningCanvas', 'LightningCanvasController@home');
+
+
+
 Route::get('creations/touitteur', 'TouitteurController@home');
 
 Route::get('creations/touitteur/del/{id}', 'TouitteurController@delete');
