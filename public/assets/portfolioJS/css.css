@@ -12,9 +12,6 @@ Lightbox -> Ligne 181.
 
 
 								/* STYLE DE LA NAV */
-@font-face {font-family: "Karla"; src: url('../font/Karla-Regular.ttf');}
-
-
 nav{
 	width: 12%;
 	z-index:1;
@@ -114,7 +111,7 @@ nav li:active{
 
 #leftArrow{
 	top:42%;
-	left:8.5%;
+	left:12.5%;
 }
 
 #rightArrow{ 

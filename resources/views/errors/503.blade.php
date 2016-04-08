@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">Indisponible pour le moment. Veuillez ré-essayer plus tard.</div>
             </div>
         </div>
     </body>

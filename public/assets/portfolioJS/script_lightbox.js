@@ -37,7 +37,7 @@
 		"Lorem ipsum, lacus amet sem libero etiam donec viverra class cras purus in. Sit enim erat mauris suspendisse fusce. Parturient eget hac. Suspendisse sollicitudin sed. Ipsum nascetur elementum ipsum nisl aliquam amet senectus nullam iaculis ante neque consectetuer tristique proin. Lobortis pede neque sed consequat nisl interdum neque nullam feugiat ipsum amet. Tempor ac lacus diamlorem pulvinar luctus. Leo fames luctus id dignissim viverra viverra nulla dolor.",		
 		];
 		var source = [
-		"http://my-cv.dev/assets/portfolioJS/img/books/book_cover.png",
+		"img/books/book_cover.png",
 		"img/books/book_cover.png",
 		"img/books/book_cover.png",
 		"img/books/book_cover.png",
