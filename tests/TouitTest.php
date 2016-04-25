@@ -28,17 +28,4 @@ class TouitTest extends TestCase{
 			->see('Bonjour Valentin');
 	}
 
-	function testDeleteTouit(){
-		
-	}
-
-	function testAddPlus(){
-
-	}
-
-	function testAddMoins(){
-
-	}
-
-	function
 }
