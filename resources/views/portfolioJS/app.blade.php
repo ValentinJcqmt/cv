@@ -6,8 +6,7 @@
 	<meta name="keywords" content="site, vitrine, portfolio, theatre, roman, livre, romans, livres">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="{{ url('assets/portfolioJS/css.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url('assets/portfolioJS/reset.css') }}">
-	<link rel="icon" type="image/png" href="{{ url('assets/portfolioJS/assets/portfolioJS/img/favicon.png') }}">
+	<link rel="icon" type="image/png" href="{{ url('assets/portfolioJS/img/favicon.png') }}">
 </head>
 <body oncontextmenu="return false">
 	<nav id="nav">
@@ -31,6 +30,7 @@
 	<div id="mapPosition"></div>
 	</div>
 	<div id="main">
+		
 		<section id="presentation">
 			<span class="presentationText">
 				Lorem ipsum, <em class="bold">Nom prenom</em> Sem libero etiam donec viverra class cras purus in. Sit enim erat mauris suspendisse fusce. Parturient eget hac. Suspendisse sollicitudin sed. Ipsum nascetur elementum ipsum nisl aliquam amet senectus nullam iaculis ante neque consectetuer tristique proin. Lobortis pede neque sed consequat nisl interdum neque nullam feugiat ipsum amet. Tempor ac lacus diamlorem pulvinar luctus. Leo fames luctus id dignissim viverra viverra nulla dolor.
@@ -191,7 +191,18 @@
 			</div>
 		</section>
 	</div>
-	<script type="text/javascript" src="{{ url('assets/portfolioJS/script_nav.js') }}"></script>
-	<script type="text/javascript" src="{{ url('assets/portfolioJS/script_lightbox.js') }}"></script>
+	<script type="text/javascript">
+		var pageInit = function(){
+			console.log("scripts!");
+			var head = document.getElementById("head");
+			var script_nav = document.createElement("script");
+			var script_lightbox = document.createElement("script");
+			script_nav.src = "{{ url('assets/portfolioJS/script_nav.js') }}";
+			script_lightbox.src = "{{ url('assets/portfolioJS/script_lightbox.js') }}";
+			head.appendChild(script_nav);
+			head.appendChild(script_lightbox);
+		}
+		window.addEventListener("load", pageInit, false);
+	</script>
 </body>
 </html>

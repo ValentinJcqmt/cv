@@ -23,7 +23,7 @@
 		}
 		nav.right = function(){
 			if( nav.horizontal != "right" ){
-				nav.mainDiv.style.right = "84%";
+				nav.mainDiv.style.right = "88%";
 				nav.mainDiv.style.marginLeft = "0%";
 				nav.horizontal = "right";
 				nav.mapPosition.style.left = 35 + "px",
@@ -43,7 +43,7 @@
 		}
 		nav.top = function(){
 			if ( nav.vertical != "top" ){
-				nav.mainDiv.style.top = 0;
+				nav.mainDiv.style.top = 0 + "px";
 				nav.vertical = "top";
 				nav.mapPosition.style.top = 0 + "px";
 				nav.arrowEnable();

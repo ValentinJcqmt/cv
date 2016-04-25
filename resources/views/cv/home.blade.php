@@ -22,10 +22,10 @@
 			<div class="custom-form form-group col-sm-8 col-sm-offset-2">
 				<form action="/" method="post">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-					<input type="text" name="name" placeholder="Nom" class="form-control">
-					<input type="mail" name="mail" placeholder="E-mail" class="form-control">
-					<textarea style="resize:none;" class="form-control" cols="5" rows="3" name="msg" placeholder="Votre message."></textarea>
-					<input type="submit" value="Envoyer" class="btn btn-default">
+					<input type="text" name="name" placeholder="Nom" class="form-control custom-form-input">
+					<input type="mail" name="mail" placeholder="E-mail" class="form-control custom-form-input">
+					<textarea style="resize:none;" class="form-control custom-form-input" cols="5" rows="3" name="msg" placeholder="Votre message."></textarea>
+					<input type="submit" value="Envoyer" class="btn btn-default custom-btn-contact col-sm-8 col-sm-offset-2">
 				</form>
 			</div>
 		</section>

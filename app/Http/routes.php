@@ -35,6 +35,12 @@ Route::get('creations/touitteur/del/{id}', 'TouitteurController@delete');
 
 Route::get('creations/touitteur/plus/{id}', 'TouitteurController@addPlus');
 
-Route::get('creations/touitteur/moins/{id}', 'TouitteurController@addMoins');
+Route::get('creations/touitter/moins/{id}', 'TouitteurController@addMoins');
 
 Route::post('creations/touitteur', 'TouitteurController@addTouit');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('logout', 'HomeController@logout');

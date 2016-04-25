@@ -216,4 +216,19 @@
 	.custom-container{
 		padding: 0;
 	}
+	.custom-form-input{
+		border-radius: 0px;
+		border: solid 1px #073357;
+		margin-bottom: 1%;
+	}
+	.custom-btn-contact{
+		background-color: #073357;
+		color: white;
+		font-weight: bold;
+		border: 0;
+	}
+	.custom-btn-contact:hover{
+		background-color: white;
+		color: #073357;
+	}
 </style>
