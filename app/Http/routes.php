@@ -21,6 +21,14 @@ Route::post('/', 'CvController@mail');
 
 
 
+Route::get('app', 'AppController@home');
+
+Route::get('app/create', 'AppController@create');
+
+Route::post('app/create', 'AppController@saveHero');
+
+
+
 Route::get('creations/portfolioJS', 'PortfolioJSController@home');
 
 

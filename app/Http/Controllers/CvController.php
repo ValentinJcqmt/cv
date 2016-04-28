@@ -21,5 +21,4 @@ class CvController extends Controller
     public function cv(){
     	return view('cv.cv');
     }
-
 }

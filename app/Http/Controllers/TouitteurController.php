@@ -6,6 +6,8 @@ use Request;
 
 use App\Http\Requests;
 
+use App\Touit;
+
 use DB;
 
 use Carbon\Carbon;
@@ -15,36 +17,48 @@ use Auth;
 class TouitteurController extends Controller
 {
     public function home(){
-    	$touitList = DB::select("select texte, date, messages.id, plus, moins, userid, name from messages, users where messages.userid = users.id order by date desc limit 0, 10");
+        $touitList = Touit::orderBy('date', 'desc')->get();
 		return view('touitteur.home', compact('touitList'));
     }
 
     public function addTouit(Request $request)
     {
-    	$touitData = $request::all();
+        //Creating and saving Touit class
+        $touit = new Touit;
+        $touit->texte = $request::all()['texte'];
+        $touit->user_id = Auth::user()->id;
+		$touit->save();
 
-    	$date = Carbon::now();
-		DB::table('messages')->insert(
-		    array(	'texte' => $touitData['texte'],
-		    		'date' => $date,
-                    'userid' => Auth::user()->id)
-		); 	
-    	return redirect()->back();
+        session()->flash('flash_message_success', "Votre touit a bien été enregitré!");
+
+    	return redirect()->back()->with([
+            'flash_message_success' => "Votre touit a bien été enregitré!"
+        ]);
     }
 
     public function addPlus($touitId){
-    	DB::table('messages')->where('id', '=', $touitId)->increment('plus');
+    	Touit::find($touitId)->increment('plus');
     	return redirect()->back();
     }
 
     public function addMoins($touitId){
-    	DB::table('messages')->where('id', '=', $touitId)->increment('moins');
+    	Touit::find($touitId)->increment('moins');
     	return redirect()->back();
     }
 
     public function delete($touitId){
-    	DB::table('messages')->where('id', '=', $touitId)->delete();
-    	return redirect()->back();
+        $touit = Touit::find($touitId);
+        if (Auth::user()->id == $touit->user_id){
+        	$touit->delete();
+            session()->flash('flash_message_success', "Votre touit a bien été supprimé!");
+        }
+        else{
+            session()->flash('flash_message_danger', "Action impossible!");      
+        }
+
+        
+
+        return redirect()->back();
     }
 
     public function login(){
