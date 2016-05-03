@@ -110,8 +110,24 @@ class CollectDadAutoProvider extends Command {
 
             while ($k == true) {
                 if ($file = @file_get_contents($this->urlImages.$car->id.'/'.$i.'.png')) {
-                    $this->storeImages($file, $car->id, $i);
+                    $this->storeImages($file, $car->id, $i, '.png');
                     $i++;
+                    continue;
+                }
+                if ($file = @file_get_contents($this->urlImages.$car->id.'/'.$i.'.jpg')) {
+                    $this->storeImages($file, $car->id, $i, '.jpg');
+                    $i++;
+                    continue;
+                }
+                if ($file = @file_get_contents($this->urlImages.$car->id.'/'.$i.'.gif')) {
+                    $this->storeImages($file, $car->id, $i, '.gif');
+                    $i++;
+                    continue;
+                }
+                if ($file = @file_get_contents($this->urlImages.$car->id.'/'.$i.'.jpeg')) {
+                    $this->storeImages($file, $car->id, $i, '.jpeg');
+                    $i++;
+                    continue;
                 }
                 $k = $file;
             }
@@ -125,10 +141,10 @@ class CollectDadAutoProvider extends Command {
      * @param $carId
      * @param $i
      */
-    private function storeImages($image, $carId, $i)
+    private function storeImages($image, $carId, $i, $extension)
     {
         Storage::disk('dad-auto-public')->makeDirectory($this->pathImage.$carId);
-        Storage::disk('dad-auto-public')->put($this->pathImage.$carId.'/'.$i.'.png', $image);
+        Storage::disk('dad-auto-public')->put($this->pathImage.$carId.'/'.$i.$extension, $image);
     }
 
     /**
