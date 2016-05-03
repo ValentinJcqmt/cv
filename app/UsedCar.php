@@ -12,4 +12,9 @@ class UsedCar extends Model {
     {
         return $this->hasMany('App\UsedCarsImage');
     }
+
+    public function contacts()
+    {
+        return $this->morphMany('App\Contact', 'contactable');
+    }
 }
