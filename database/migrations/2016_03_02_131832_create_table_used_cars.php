@@ -14,7 +14,7 @@ class CreateTableUsedCars extends Migration {
     {
         Schema::create('used_cars', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('provider_car_id');
+            $table->bigInteger('provider_car_id');
             $table->string('provider', 20);
             $table->string('marque', 15)->nullable();
             $table->string('model', 100)->nullable();
