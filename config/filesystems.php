@@ -45,18 +45,18 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root'   => storage_path('app'),
         ],
 
         'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'driver'     => 'local',
+            'root'       => storage_path('app/public'),
             'visibility' => 'public',
         ],
 
         's3' => [
             'driver' => 's3',
-            'key' => 'your-key',
+            'key'    => 'your-key',
             'secret' => 'your-secret',
             'region' => 'your-region',
             'bucket' => 'your-bucket',
@@ -64,14 +64,31 @@ return [
 
         'dad-auto-public' => [
             'driver' => 'local',
-            'root' => public_path('assets/providers/dad-auto/'),
+            'root'   => public_path('assets/providers/dad-auto/'),
         ],
 
         'dad-auto' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/assets/providers/dad-auto/'),
+            'root'   => storage_path('app/public/assets/providers/dad-auto/'),
         ],
 
-    ],
+        'ftp-selsia' => [
+            'driver'   => 'ftp',
+            'host'     => env('FTP_SELSIA_SERVER'),
+            'username' => env('FTP_SELSIA_USERNAME'),
+            'password' => env('FTP_SELSIA_PASSWORD'),
+            'root'     => '/',
+        ],
 
+        'selsia-public' => [
+            'driver' => 'local',
+            'root'   => public_path('assets/providers/selsia/'),
+        ],
+
+        'selsia' => [
+            'driver' => 'local',
+            'root'   => storage_path('app/public/assets/providers/selsia/'),
+        ],
+
+    ]
 ];
