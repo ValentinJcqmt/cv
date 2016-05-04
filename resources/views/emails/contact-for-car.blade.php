@@ -3,7 +3,7 @@
 <a href="{{ env('APP_URL') }}/voitures-neuves/{{ $datas['slug'] }}/{{$datas['id']}}">Cliquez sur ce lien pour accèder au
     véhicule</a>
 
-L'identifiant du véhicule est "{{$datas['id']}}".<br>
+L'identifiant du véhicule est "{{$datas['id']}}" du fournisseur DADAuto.<br>
 
 
 <h3> Information de l'utilisateur :</h3><br>
