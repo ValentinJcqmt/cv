@@ -6,14 +6,19 @@
         <div class="owl-carousel">
         @foreach($datas as $data)
             <?php
-            $file = file_exists(public_path().'/assets/providers/dad-auto/images/'.$data['id'].'/1.png');
+                $directory = base_path().'/public/assets/providers/dad-auto/images/'.$data['id'];
+                $files = File::allFiles($directory);
+                foreach($files as $file){
+                    if($file->getFilename() == '1.png' || $file->getFilename() == '1.jpg' || $file->getFilename() == '1.gif' || $file->getFilename() == '1.jpeg')
+                        $img = $file->getFilename();
+                }
             ?>
             <div class="item" >
                 <a class="carousel-item" href="#one!">
-                    @if($file)
-                    <img src="{{ url('assets/providers/dad-auto/images') }}/{{ $data['id'] }}/1.png" alt="{{ $data['marque'] }}-{{ $data['modele'] }}">
+                    @if($img)
+                    <img src="{{ url('assets/providers/dad-auto/images') }}/{{ $data['id'] }}/{{$img}}" alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
                     @else
-                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/default/default.jpg" alt="{{ $data['marque'] }}-{{ $data['modele'] }}">
+                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/default/default.jpg" alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
                     @endif
                 </a>
             </div>

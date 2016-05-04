@@ -42,7 +42,7 @@
         </div>
             <?php echo Form::hidden('car_id', $datas['id']); ?>
             <?php echo Form::hidden('provider', 'dad-auto'); ?>
-            <?php echo Form::hidden('slug', $datas['marque'].'-'.$datas['modele']); ?>
+            <?php echo Form::hidden('slug', str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-')); ?>
         <div class="col m12">
             <?php echo Form::submit('Envoyer la demande', array('class' => 'waves-effect waves-light btn button-contact')); ?>
         </div>
