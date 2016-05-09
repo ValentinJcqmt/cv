@@ -15,13 +15,17 @@
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                 <?php
-                    $file = file_exists(public_path().'/assets/providers/dad-auto/images/'.$car['id'].'/1.png');
-
+                    $directory = base_path().'/public/assets/providers/dad-auto/images/'.$car['id'];
+                    $files = File::allFiles($directory);
+                        foreach($files as $file){
+                            if($file->getFilename() == '1.png' || $file->getFilename() == '1.jpg' || $file->getFilename() == '1.gif' || $file->getFilename() == '1.jpeg')
+                                $img = $file->getFilename();
+                        }
                 ?>
-                @if($file)
-                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/{{ $car['id'] }}/1.png" alt="{{ $car['marque'] }}-{{ $car['modele'] }}">
+                @if($img)
+                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/{{$car['id']}}/{{ $img}}" alt="{{ str_slug($car['marque'].'-'.$car['modele'].'-'.$car['edition'], '-') }}">
                 @else
-                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/default/default.jpg" alt="{{ $car['marque'] }}-{{ $car['modele'] }}">
+                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/default/default.jpg" alt="{{ str_slug($car['marque'].'-'.$car['modele'].'-'.$car['edition'], '-') }}">
                 @endif
 
                 </div>
@@ -33,7 +37,7 @@
                 <div class="card-reveal">
 
                     <span class="card-title grey-text text-darken-4">{{ $car['marque'] }} {{ $car['modele'] }}<i class="material-icons right">X</i></span>
-                    <a class="waves-effect waves-light btn" href="{{ URL::to('voitures-neuves') }}/{{ str_slug($car['marque'], '-') }}-{{ str_slug($car['modele'], '-') }}-{{ str_slug($car['edition'], '-') }}/{{ $car['id'] }}" style="margin-top:150px;">En savoir plus</a>
+                    <a class="waves-effect waves-light btn" href="{{ URL::to('voitures-neuves') }}/{{ str_slug($car['marque'].'-'.$car['modele'].'-'.$car['edition'], '-') }}/{{ $car['id'] }}" style="margin-top:150px;">En savoir plus</a>
                 </div>
             </div>
         </div>
@@ -44,7 +48,6 @@
         <ul class="pagination">
             <li class="waves-effect"><a href="{{ Request::url() }}?page={{ $datas->currentPage()-1 }}">Précédent</a></li>
             <li class="active"><a href="{{ $datas->currentPage() }}">{{ $datas->currentPage() }}</a></li>
-
             <li class="waves-effect"><a href="{{ Request::url() }}?page={{ $datas->currentPage()+1 }}">Suivant</a></li>
         </ul>
     </div>

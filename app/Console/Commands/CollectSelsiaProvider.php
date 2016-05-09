@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Contact;
 use App\UsedCar;
 use App\UsedCarsImage;
 use Chumper\Zipper\Zipper;
@@ -147,7 +148,7 @@ class CollectSelsiaProvider extends Command {
 
     private function updateUsedCar(UsedCar $usedCar, $item)
     {
-        return $usedCar->update([
+        $usedCar->update([
             'marque'       => $item['Marque'],
             'model'        => $item['Modele'],
             'version'      => $item['Version'],
@@ -163,11 +164,21 @@ class CollectSelsiaProvider extends Command {
             'co2'          => $item['Co2'],
             'options'      => $item['EquipementsSerieEtOption'],
         ]);
+
+
+
+        $attributes = [
+            'names'  => $item['ContactsNoms'],
+            'phones' => $item['ContactsTelephones'].'|'.$item['ContactsTelephones2'],
+            'emails' => $item['ContactsEmails'],
+        ];
+
+        $usedCar->contacts()->update($attributes);
     }
 
     private function createUsedCar($item)
     {
-        return $this->usedCarModel->create([
+        $usedCar = $this->usedCarModel->create([
             'provider_car_id' => $item['IdentifiantVehicule'],
             'provider'        => 'selsia',
             'marque'          => $item['Marque'],
@@ -185,6 +196,14 @@ class CollectSelsiaProvider extends Command {
             'co2'             => $item['Co2'],
             'options'         => $item['EquipementsSerieEtOption'],
         ]);
+
+        $attributes = new Contact([
+            'names'  => $item['ContactsNoms'],
+            'phones' => $item['ContactsTelephones'].'|'.$item['ContactsTelephones2'],
+            'emails' => $item['ContactsEmails'],
+        ]);
+
+        $usedCar->contacts()->save($attributes);
     }
 
     private function createBarProgress($totalItem)
@@ -306,7 +325,7 @@ class CollectSelsiaProvider extends Command {
         }
 
         foreach ($images as $image) {
-            if(!array_search($image, $photos))
+            if (!array_search($image, $photos))
                 Storage::disk('selsia-public')->delete('images/'.$image);
         }
     }
