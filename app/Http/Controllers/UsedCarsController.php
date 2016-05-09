@@ -20,13 +20,13 @@ class UsedCarsController extends Controller
     {
         $datas = $this->usedCar->with('images')->paginate(15);
 
-        return view('occasion.index', ['datas' => $datas]);
+        return view('occasion.index', ['datas' => $datas, 'provider' => 'selsia']);
     }
 
     public function show($slug, $id)
     {
         $datas = $this->usedCar->with('images')->find($id);
 
-        return view('occasion.show')->with('datas', $datas);
+        return view('occasion.show')->with(['datas' => $datas, 'provider' => 'selsia']);
     }
 }
