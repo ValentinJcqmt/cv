@@ -34,5 +34,5 @@ Route::group(['middleware' => ['web']], function () {
     /*
      * Mails
      */
-    Route::put('send-mail-for-car', ['uses' => 'MailsController@sendCarMail']);
+    Route::post('send-mail-for-car', ['uses' => 'MailsController@sendCarMail']);
 });
