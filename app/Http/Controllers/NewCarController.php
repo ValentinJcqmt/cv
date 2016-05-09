@@ -12,14 +12,17 @@ class NewCarController extends Controller {
 
     protected $reader;
 
+    protected $provider;
+
     public function __construct(DadAutoReader $reader)
     {
         $this->reader = $reader;
+        $this->provider = 'dad-auto';
     }
 
     public function home()
     {
-        return view('home')->with('datas', $this->reader->get());
+        return view('home')->with(['datas' => $this->reader->get(), 'provider' => $this->provider]);
     }
 
     public function renderHomeNew()
@@ -34,16 +37,16 @@ class NewCarController extends Controller {
 
     public function display()
     {
-        return view('neuf.index-new')->with('datas', $this->reader->get());
+        return view('neuf.index-new')->with(['datas' => $this->reader->get(), 'provider' => $this->provider]);
     }
 
     public function show($slug, $id)
     {
-        return view('neuf.show-new')->with('datas', $this->reader->show($id));
-
+        return view('neuf.show-new')->with(['datas' => $this->reader->show($id), 'provider' => $this->provider]);
     }
-    public function sendCarMail() {
 
+    public function sendCarMail()
+    {
         return view('layouts.contact');
     }
 }

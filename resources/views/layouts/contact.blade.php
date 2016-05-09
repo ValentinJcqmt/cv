@@ -49,7 +49,7 @@
             <?php echo Form::label('message', 'Message'); ?>
         </div>
             <?php echo Form::hidden('car_id', $datas['id']); ?>
-            <?php echo Form::hidden('provider', 'selsia'); ?>
+            <?php echo Form::hidden('provider', $provider); ?>
             <?php echo Form::hidden('slug', str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-')); ?>
         <div class="col m12">
             <?php echo Form::submit('Envoyer la demande', array('class' => 'waves-effect waves-light btn button-contact')); ?>
