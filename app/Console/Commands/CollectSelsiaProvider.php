@@ -49,7 +49,7 @@ class CollectSelsiaProvider extends Command {
 
     /**
      * Execute the console command.
-     * Selsia is called cardiff by client ...
+     * Selsia is also called cardiff by client ...
      *
      * @return mixed
      */
@@ -165,15 +165,19 @@ class CollectSelsiaProvider extends Command {
             'options'      => $item['EquipementsSerieEtOption'],
         ]);
 
-
+        $separator = null;
+        if (isset($item['ContactsTelephones']) && isset($item['ContactsTelephones2']))
+            $separator = '|';
 
         $attributes = [
             'names'  => $item['ContactsNoms'],
-            'phones' => $item['ContactsTelephones'].'|'.$item['ContactsTelephones2'],
+            'phones' => $item['ContactsTelephones'].$separator.$item['ContactsTelephones2'],
             'emails' => $item['ContactsEmails'],
         ];
 
         $usedCar->contacts()->update($attributes);
+
+        return $usedCar;
     }
 
     private function createUsedCar($item)
@@ -197,13 +201,19 @@ class CollectSelsiaProvider extends Command {
             'options'         => $item['EquipementsSerieEtOption'],
         ]);
 
+        $separator = null;
+        if (isset($item['ContactsTelephones']) && isset($item['ContactsTelephones2']))
+            $separator = '|';
+
         $attributes = new Contact([
             'names'  => $item['ContactsNoms'],
-            'phones' => $item['ContactsTelephones'].'|'.$item['ContactsTelephones2'],
+            'phones' => $item['ContactsTelephones'].$separator.$item['ContactsTelephones2'],
             'emails' => $item['ContactsEmails'],
         ]);
 
         $usedCar->contacts()->save($attributes);
+
+        return $usedCar;
     }
 
     private function createBarProgress($totalItem)

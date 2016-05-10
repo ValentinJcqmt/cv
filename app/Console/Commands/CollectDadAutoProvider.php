@@ -46,6 +46,10 @@ class CollectDadAutoProvider extends Command {
 
     /**
      * Execute the console command.
+     * This script download JSON file and store it.
+     * Then we use local json just downloaded to manage content.
+     * Processing images will destroy the current car's image file to download the fresh images
+     * After that we destroy all old directory for cars who are not in json anymore.
      *
      * @return mixed
      */
