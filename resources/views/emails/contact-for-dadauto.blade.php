@@ -5,6 +5,10 @@
 
 L'identifiant du véhicule est "{{$datas['id']}}" du fournisseur DADAuto.<br>
 
+Message du contact :<br>
+<br>
+{{ $datas['message'] }}
+<br>
 
 <h3> Information de l'utilisateur :</h3><br>
 <br>

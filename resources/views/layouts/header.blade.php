@@ -16,7 +16,7 @@
             <div class="nav-wrapper  blue-grey darken-3">
                 <a href="{{ url('/') }}" class="brand-logo">Concept Automobile</a>
                 <ul class="right hide-on-med-and-down">
-                    <li class="active"><a href="collapsible.html">Accueil</a></li>
+                    <li class="active"><a href="{{ url('/') }}">Accueil</a></li>
                     <li><a href="">Configurateur</a></li>
                     <li><a href="{{ URL::to('voitures-neuves') }}">Véhicules Neufs & Utilitaires en Stock</a></li>
                     <li><a href="">Véhicules Occasions</a></li>
