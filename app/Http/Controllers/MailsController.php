@@ -47,7 +47,7 @@ class MailsController extends Controller {
         $datas = array_merge($car, array_except($request->all(), ['car_id', 'email_confirmation']));
 
         Mail::send('emails.contact-for-dadauto', ['datas' => $datas], function ($m) use ($request) {
-            $m->from($request->email);
+            $m->from(env('MAIL_FROM'));
 
             $m->to($this->destinationMail)->subject('Demande de contact pour un véhicule du fournisseur Dad Auto');
         });
@@ -62,7 +62,7 @@ class MailsController extends Controller {
         $datas = array_merge($datas, array_except($request->all(), ['car_id', 'email_confirmation']));
 
         Mail::send('emails.contact-for-selsia', ['datas' => $datas], function ($m) use ($request) {
-            $m->from($request->email);
+            $m->from(env('MAIL_FROM'));
 
             $m->to($this->destinationMail)->subject('Demande de contact pour un véhicule du fournisseur Selsia');
         });
