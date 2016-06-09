@@ -8,6 +8,7 @@ Homestead.json
 _ide_helper.php
 
 /storage/debugbar
-/public/assets/providers
+/public/assets/providers/selsia
+/public/assets/providers/dad-auto
 
 composer.lock

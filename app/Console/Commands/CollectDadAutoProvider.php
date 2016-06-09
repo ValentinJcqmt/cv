@@ -106,6 +106,8 @@ class CollectDadAutoProvider extends Command {
     {
         $cars = json_decode(Storage::disk('dad-auto')->get($this->pathJson));
 
+//        dump($cars);
+
         foreach ($cars as $car) {
             $this->cleanCurrentDirectory($car->id);
 
@@ -133,6 +135,7 @@ class CollectDadAutoProvider extends Command {
                     $i++;
                     continue;
                 }
+                dump($this->urlImages.$car->id.'/'.$i);
                 $k = $file;
             }
         }
@@ -147,6 +150,7 @@ class CollectDadAutoProvider extends Command {
      */
     private function storeImages($image, $carId, $i, $extension)
     {
+        dump($this->pathImage.$carId);
         Storage::disk('dad-auto-public')->makeDirectory($this->pathImage.$carId);
         Storage::disk('dad-auto-public')->put($this->pathImage.$carId.'/'.$i.$extension, $image);
     }

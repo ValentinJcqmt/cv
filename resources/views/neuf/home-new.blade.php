@@ -4,28 +4,37 @@
     </div>
     <div class="col m12">
         <div class="owl-carousel">
-        @foreach($datas as $data)
-            <?php
+            @foreach($datas as $data)
+                <?php
+                    $img = null;
                 $directory = base_path().'/public/assets/providers/dad-auto/images/'.$data['id'];
-                $files = File::allFiles($directory);
-                foreach($files as $file){
-                    if($file->getFilename() == '1.png' || $file->getFilename() == '1.jpg' || $file->getFilename() == '1.gif' || $file->getFilename() == '1.jpeg')
-                        $img = $file->getFilename();
+                $files = Storage::files($directory);
+                if ($files) {
+                    foreach ($files as $file) {
+                        if ($file->getFilename() == '1.png' || $file->getFilename() == '1.jpg' || $file->getFilename() == '1.gif' || $file->getFilename() == '1.jpeg')
+                            $img = $file->getFilename();
+                    }
+
                 }
-            ?>
-            <div class="item" >
-                <a class="carousel-item" href="#one!">
-                    @if($img)
-                    <img src="{{ url('assets/providers/dad-auto/images') }}/{{ $data['id'] }}/{{$img}}" alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
-                    @else
-                    <img class="activator" src="{{ url('assets/providers/dad-auto/images') }}/default/default.jpg" alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
-                    @endif
-                </a>
-            </div>
-        @endforeach
+
+                ?>
+                <div class="item">
+                    <a class="carousel-item" href="#one!">
+                        @if($img)
+                            <img src="{{ url('assets/providers/dad-auto/images') }}/{{ $data['id'] }}/{{$img}}"
+                                 alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
+                        @else
+                            <img class="activator"
+                                 src="{{ url('assets/providers/') }}/no-image.jpg"
+                                 alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
+                        @endif
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
     <div class="col m4 offset-m5" style="margin-top:10px;">
-        <a class="waves-effect waves-light btn" href="{{ URL::to('voitures-neuves') }}">Voir tous les véhicules <i class="fa fa-arrow-right"></i></a>
+        <a class="waves-effect waves-light btn" href="{{ URL::to('voitures-neuves') }}">Voir tous les véhicules <i
+                    class="fa fa-arrow-right"></i></a>
     </div>
 </div>

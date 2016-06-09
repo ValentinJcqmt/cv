@@ -21,6 +21,7 @@ class DadAutoReader {
         $offSet = ($page * $perPage) - $perPage;
 
         $paginator = new LengthAwarePaginator(array_slice($this->source, $offSet, $perPage, true), count($this->source), $perPage);
+        $paginator->setPath(request()->path());
 
         return $paginator;
     }
@@ -31,6 +32,7 @@ class DadAutoReader {
     }
 
     private function loadSource()
+
     {
         return json_decode(Storage::get('public/assets/providers/dad-auto/list.json'), 1);
     }

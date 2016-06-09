@@ -3,9 +3,15 @@
 
 @section('content')
     <?php
+    $img = null;
     $directory = base_path().'/public/assets/providers/dad-auto/images/'.$datas['id'];
-    $files = File::allFiles($directory);
+    $files = Storage::files($directory);
+    foreach ($files as $file) {
+        if ($file->getFilename() == '1.png' || $file->getFilename() == '1.jpg' || $file->getFilename() == '1.gif' || $file->getFilename() == '1.jpeg')
+            $img = $file->getFilename();
+    }
     ?>
+
 
     {!! Breadcrumbs::render('show-one-new-car', $datas) !!}
     <div class="row">
@@ -73,19 +79,26 @@
 
             </div>
             <div id="test2" class="col s12">
-                <p>{{{ $datas['options'] }}}</p>
+                <p>{{ $datas['options'] }}</p>
             </div>
         </div>
     </div>
 
     <div class="col m12">
         <div class="owl-carousel">
+            @unless($files)
+                <img class="activator" src="{{ url('assets/providers/') }}/no-image.jpg"
+                     alt="{{ str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-') }}">
+            @endunless
             @foreach($files as $file)
-               {{--{{ dd($file)}}--}}
+                {{--{{ dd($file)}}--}}
                 <div class="item">
-                    <a class="carousel-item" href="#one!">
-                        <img src="{{ url('assets/providers/dad-auto/images') }}/{{ $datas['id'] }}/{{ $file->getFilename() }}"
-                             alt="{{ str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-') }}">
+                    <a class="carousel-item">
+                        @if($img)
+                            <img class="activator"
+                                 src="{{ url('assets/providers/dad-auto/images') }}/{{$car['id']}}/{{ $img}}"
+                                 alt="{{ str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-') }}">
+                        @endif
                     </a>
                 </div>
             @endforeach
