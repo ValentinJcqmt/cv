@@ -52,7 +52,7 @@
             <?php echo Form::hidden('provider', $provider); ?>
             <?php echo Form::hidden('slug', str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-')); ?>
         <div class="col m12">
-            <?php echo Form::submit('Envoyer la demande', array('class' => 'waves-effect waves-light btn button-contact')); ?>
+            <?php echo Form::submit('Envoyer la demande', array('class' => 'btn button-contact')); ?>
         </div>
 
     <?php echo Form::close(); ?>

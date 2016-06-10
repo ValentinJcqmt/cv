@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col l6 s12">
-            <h5 class="white-text">Contenu du footer</h5>
+            <h5 class="white-text">Informations</h5>
             <blockquote class="grey-text text-lighten-4">
                 Les véhicules neufs ou occasions proposés par nos fournisseurs peuvent être soumis au bonus comme au malus gouvernemental.
                 Les prix indiqués sur nos sites ne tiennent pas compte du bonus / malus, que vous devrez déduire ou rajouter.
@@ -11,19 +11,18 @@
             </blockquote>
         </div>
         <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Rubriques les plus populaires</h5>
+            <h5 class="white-text">Informations et conditions</h5>
             <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Informatons légales</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{ asset('assets/cgv/cgv-neufs.pdf') }}" target="_blank">Conditions générales de ventes véhicules neufs</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{ asset('assets/cgv/cgv-occasions.pdf') }}" target="_blank">Conditions générales de ventes véhicules occasions</a></li>
             </ul>
         </div>
     </div>
 </div>
 <div class="footer-copyright">
     <div class="container">
-        <h5 class="center-align">contact@conceptautomobile.fr</h5>
+        <h5 class="center-align">Contacts : contact@eurocarline.fr & 04 86 68 80 51</h5>
     </div>
 </div>
 @push('scripts')
