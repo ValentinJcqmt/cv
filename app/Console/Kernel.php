@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel {
         // Commands\Inspire::class,
         Commands\CollectDadAutoProvider::class,
         Commands\CollectSelsiaProvider::class,
+        Commands\CollectConceptAutoProvider::class,
     ];
 
     /**

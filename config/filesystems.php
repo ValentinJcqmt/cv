@@ -62,14 +62,14 @@ return [
             'bucket' => 'your-bucket',
         ],
 
-        'dad-auto-public' => [
+        'concept-auto-public' => [
             'driver' => 'local',
-            'root'   => public_path('assets/providers/dad-auto/'),
+            'root'   => public_path('assets/providers/conceptauto/'),
         ],
 
-        'dad-auto' => [
+        'concept-auto' => [
             'driver' => 'local',
-            'root'   => storage_path('app/public/assets/providers/dad-auto/'),
+            'root'   => storage_path('app/public/assets/providers/conceptauto/'),
         ],
 
         'ftp-selsia' => [
