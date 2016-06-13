@@ -43,11 +43,11 @@ class CollectConceptAutoProvider extends Command {
     public function handle()
     {
         $this->info('Processing XML file...');
-//        $this->storeFile($this->getSource());
+        $this->storeFile($this->getSource());
         $this->info('Step 1/3 ::: Json import complete :::');
 
         $this->info('Processing images...');
-//        $this->processImages();
+        $this->processImages();
         $this->info('Step 2/3 ::: Images import complete :::');
 
         $this->info('Processing old images...');
