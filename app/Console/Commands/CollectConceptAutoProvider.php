@@ -102,7 +102,6 @@ class CollectConceptAutoProvider extends Command {
             foreach ($images as $image) {
                 $this->storeImages($image);
             }
-
         }
     }
 
@@ -163,7 +162,6 @@ class CollectConceptAutoProvider extends Command {
 
         //Delete all diff files
         foreach ($diffs as $diff) {
-            dump($diff);
             Storage::disk('concept-auto-public')->deleteDirectory($this->pathImage.$diff);
         }
     }
