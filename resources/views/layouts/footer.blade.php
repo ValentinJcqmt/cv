@@ -13,7 +13,7 @@
         <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Informations et conditions</h5>
             <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Informatons légales</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Informations légales</a></li>
                 <li><a class="grey-text text-lighten-3" href="{{ asset('assets/cgv/cgv-neufs.pdf') }}" target="_blank">Conditions générales de ventes véhicules neufs</a></li>
                 <li><a class="grey-text text-lighten-3" href="{{ asset('assets/cgv/cgv-occasions.pdf') }}" target="_blank">Conditions générales de ventes véhicules occasions</a></li>
             </ul>

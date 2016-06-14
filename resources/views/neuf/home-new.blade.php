@@ -4,30 +4,26 @@
     </div>
     <div class="col m12">
         <div class="owl-carousel">
+            <?php $i = 0; ?>
             @foreach($datas as $data)
+                {{-- Limit the display --}}
+                @if($i >= 8)
+                    @continue
+                @endif
                 <?php
-                    $img = null;
-                $directory = base_path().'/public/assets/providers/dad-auto/images/'.$data['id'];
-                $files = Storage::files($directory);
-                if ($files) {
-                    foreach ($files as $file) {
-                        if ($file->getFilename() == '1.png' || $file->getFilename() == '1.jpg' || $file->getFilename() == '1.gif' || $file->getFilename() == '1.jpeg')
-                            $img = $file->getFilename();
-                    }
-
-                }
-
+                $img = null;
+                $directory = 'images/'.$data['id'];
+                $files = Storage::disk('concept-auto-public')->files($directory);
+                $img = array_first($files);
                 ?>
+                @if(!$img)
+                    @continue
+                @endif
+                <?php $i++ ?>
                 <div class="item">
-                    <a class="carousel-item" href="#one!">
-                        @if($img)
-                            <img src="{{ url('assets/providers/dad-auto/images') }}/{{ $data['id'] }}/{{$img}}"
-                                 alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
-                        @else
-                            <img class="activator"
-                                 src="{{ url('assets/providers/') }}/no-image.jpg"
-                                 alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
-                        @endif
+                    <a class="carousel-item" href="{{url('voitures-neuves', [str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-'), $data['id']])}}">
+                        <img src="{{ asset('assets/providers/conceptauto/'.$img) }}"
+                             alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
                     </a>
                 </div>
             @endforeach

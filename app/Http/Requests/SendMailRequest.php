@@ -33,7 +33,7 @@ class SendMailRequest extends Request {
 
             //request need
             'car_id'       => 'required|integer',
-            'provider'     => 'required|in:dad-auto,selsia',
+            'provider'     => 'required|in:conceptauto,selsia',
             //Need slug in order to display correct redirection
             'slug'         => 'required|string'
         ];

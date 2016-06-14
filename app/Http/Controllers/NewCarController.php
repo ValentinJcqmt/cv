@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ConceptAutoReader;
 use App\Http\Requests;
-use App\DadAutoReader;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -14,25 +14,15 @@ class NewCarController extends Controller {
 
     protected $provider;
 
-    public function __construct(DadAutoReader $reader)
+    public function __construct(ConceptAutoReader $reader)
     {
         $this->reader = $reader;
-        $this->provider = 'dad-auto';
+        $this->provider = 'conceptauto';
     }
 
     public function home()
     {
         return view('home')->with(['datas' => $this->reader->get(), 'provider' => $this->provider]);
-    }
-
-    public function renderHomeNew()
-    {
-        return view('neuf.home-new');
-    }
-
-    public function renderHomeOccasion()
-    {
-        return view('occasion.home-occasion');
     }
 
     public function display()
