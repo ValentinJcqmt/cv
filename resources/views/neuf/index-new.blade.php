@@ -16,26 +16,24 @@
                 <div class="card-image waves-effect waves-block waves-light">
                     <?php
                     $img = null;
-                    $directory = base_path().'/public/assets/providers/dad-auto/images/'.$car['id'];
-                    $files = Storage::files($directory);
-                    foreach ($files as $file) {
-                        if ($file->getFilename() == '1.png' || $file->getFilename() == '1.jpg' || $file->getFilename() == '1.gif' || $file->getFilename() == '1.jpeg')
-                            $img = $file->getFilename();
-                    }
+                    $directory = 'images/'.$car['id'];
+                    $files = Storage::disk('concept-auto-public')->files($directory);
+                    $img = array_first($files);
                     ?>
+
                     @if($img)
-                        <img class="activator"
-                             src="{{ url('assets/providers/dad-auto/images') }}/{{$car['id']}}/{{ $img}}"
+                        <img class="activator" style="height:180px;"
+                             src=" {{ asset('assets/providers/conceptauto/'.$img) }}"
                              alt="{{ str_slug($car['marque'].'-'.$car['modele'].'-'.$car['edition'], '-') }}">
                     @else
-                        <img class="activator" src="{{ url('assets/providers/') }}/no-image.jpg"
+                        <img class="activator"  style="height:180px;" src="{{ url('assets/providers/') }}/no-image.jpg"
                              alt="{{ str_slug($car['marque'].'-'.$car['modele'].'-'.$car['edition'], '-') }}">
                     @endif
 
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{ str_limit($car['marque'].' '.$car['modele'], 10)}}
-                        <span class="badge">{{ strstr($car['prix'], '.', true) }}€</span>
+                        <span class="badge">{{ $car['prix'] }}€</span>
                     </span>
                 </div>
                 <div class="card-reveal">

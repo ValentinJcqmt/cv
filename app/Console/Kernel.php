@@ -13,9 +13,8 @@ class Kernel extends ConsoleKernel {
      * @var array
      */
     protected $commands = [
-        // Commands\Inspire::class,
-        Commands\CollectDadAutoProvider::class,
         Commands\CollectSelsiaProvider::class,
+        Commands\CollectConceptAutoProvider::class,
     ];
 
     /**
@@ -26,7 +25,7 @@ class Kernel extends ConsoleKernel {
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('command:collect-dadauto-provider')
+        $schedule->command('command:collect-conceptauto-provider')
             ->daily()->at('01:00');
 
         //SELSiA (Cardiff) refresh there datas each days at 06:00

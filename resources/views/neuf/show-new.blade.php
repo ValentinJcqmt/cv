@@ -4,14 +4,10 @@
 @section('content')
     <?php
     $img = null;
-    $directory = base_path().'/public/assets/providers/dad-auto/images/'.$datas['id'];
-    $files = Storage::files($directory);
-    foreach ($files as $file) {
-        if ($file->getFilename() == '1.png' || $file->getFilename() == '1.jpg' || $file->getFilename() == '1.gif' || $file->getFilename() == '1.jpeg')
-            $img = $file->getFilename();
-    }
+    $directory = 'images/'.$datas['id'];
+    $files = Storage::disk('concept-auto-public')->files($directory);
+    $img = array_first($files);
     ?>
-
 
     {!! Breadcrumbs::render('show-one-new-car', $datas) !!}
     <div class="row">
@@ -26,19 +22,19 @@
             <div class="col s12 m12">
                 <a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
                    data-tooltip="Prix">
-                    {{ strstr($datas['prix'], '.', true) }}€
+                    {{ $datas['prix'] }}€
                 </a>
-                @if( $datas['enstock'] === 'oui')
-                    <a class="btn tooltipped col m2 margin-right-5 center-align" data-position="bottom" data-delay="50"
-                       data-tooltip="Disponibilité">
-                        Disponible
-                    </a>
-                @else
-                    <a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
-                       data-tooltip="Disponibilité">
-                        Non disponible
-                    </a>
-                @endif
+                {{--@if( $datas['enstock'] === 'oui')--}}
+                {{--<a class="btn tooltipped col m2 margin-right-5 center-align" data-position="bottom" data-delay="50"--}}
+                {{--data-tooltip="Disponibilité">--}}
+                {{--Disponible--}}
+                {{--</a>--}}
+                {{--@else--}}
+                {{--<a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"--}}
+                {{--data-tooltip="Disponibilité">--}}
+                {{--Non disponible--}}
+                {{--</a>--}}
+                {{--@endif--}}
                 <a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
                    data-tooltip="Carburant">
                     {{ $datas['carburant'] }}
@@ -47,10 +43,10 @@
                    data-tooltip="Kilométrage">
                     {{ $datas['km'] }} km
                 </a>
-                <a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
-                   data-tooltip="Transmission">
-                    {{ $datas['transmission']}}
-                </a>
+                {{--<a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"--}}
+                {{--data-tooltip="Transmission">--}}
+                {{--{{ $datas['transmission']}}--}}
+                {{--</a>--}}
             </div>
         </div>
 
@@ -68,8 +64,8 @@
                     <a href="#!" class="collection-item">Cylindrée:<span class="badge"> {{ $datas['cc'] }}</span></a>
                     <a href="#!" class="collection-item">Puissance:<span
                                 class="badge">{{ $datas['chevaux'] }}</span></a>
-                    <a href="#!" class="collection-item">Nombre de portes:<span
-                                class="badge">{{ $datas['portes'] }}</span></a>
+                    {{--<a href="#!" class="collection-item">Nombre de portes:<span--}}
+                    {{--class="badge">{{ $datas['portes'] }}</span></a>--}}
                     <a href="#!" class="collection-item">Couleur d'exterieur:<span
                                 class="badge">{{ $datas['exterieur'] }}</span></a>
                     <a href="#!" class="collection-item">Couleur d'interieur:<span
@@ -79,7 +75,11 @@
 
             </div>
             <div id="test2" class="col s12">
-                <p>{{ $datas['options'] }}</p>
+                <p>
+                    @foreach($datas['option'] as $item)
+                        {{ $item }}
+                    @endforeach
+                </p>
             </div>
         </div>
     </div>
@@ -91,14 +91,11 @@
                      alt="{{ str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-') }}">
             @endunless
             @foreach($files as $file)
-                {{--{{ dd($file)}}--}}
                 <div class="item">
                     <a class="carousel-item">
-                        @if($img)
                             <img class="activator"
-                                 src="{{ url('assets/providers/dad-auto/images') }}/{{$car['id']}}/{{ $img}}"
+                                 src="{{ asset('assets/providers/conceptauto/'.$file) }}"
                                  alt="{{ str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-') }}">
-                        @endif
                     </a>
                 </div>
             @endforeach
