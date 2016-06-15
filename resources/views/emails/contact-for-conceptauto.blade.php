@@ -3,14 +3,14 @@
 <a href="{{ env('APP_URL') }}/voitures-neuves/{{ $datas['slug'] }}/{{$datas['id']}}">Cliquez sur ce lien pour accèder au
     véhicule</a>
 
-L'identifiant du véhicule est "{{$datas['id']}}" du fournisseur DADAuto.<br>
+L'identifiant du véhicule est "{{$datas['id']}}" du fournisseur conceptauto.<br>
 
 Message du contact :<br>
 <br>
 {{ $datas['message'] }}
 <br>
 
-<h3> Information de l'utilisateur :</h3><br>
+<h3> Information du contact :</h3><br>
 <br>
 Nom : {{ $datas['last_name'] }}
 Prénom : {{ $datas['first_name'] }}

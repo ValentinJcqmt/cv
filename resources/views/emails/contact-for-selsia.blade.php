@@ -16,7 +16,7 @@ Les contacts associés à ce véhicule :
     </li>
 @endforeach
 
-<h3> Information de l'utilisateur :</h3><br>
+<h3> Information du contact :</h3><br>
 <br>
 Nom : {{ $datas['last_name'] }}
 Prénom : {{ $datas['first_name'] }}
