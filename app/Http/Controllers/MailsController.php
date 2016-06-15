@@ -53,7 +53,7 @@ class MailsController extends Controller {
         Mail::send('emails.contact-for-conceptauto', ['datas' => $datas], function ($m) use ($request) {
             $m->from(env('MAIL_FROM'));
 
-            $m->to($this->destinationMail)->subject('Demande de contact pour un véhicule d\'occasion du fournisseur Dad Auto');
+            $m->to($this->destinationMail)->subject('Demande de contact pour un véhicule neuf du fournisseur conceptauto');
         });
 
         return true;

@@ -34,9 +34,4 @@ class NewCarController extends Controller {
     {
         return view('neuf.show-new')->with(['datas' => $this->reader->show($id), 'provider' => $this->provider]);
     }
-
-    public function sendCarMail()
-    {
-        return view('layouts.contact');
-    }
 }
