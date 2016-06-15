@@ -12,7 +12,7 @@ Message du contact :<br>
 
 <h3> Information du contact :</h3><br>
 <br>
-Nom : {{ $datas['last_name'] }}
-Prénom : {{ $datas['first_name'] }}
-Téléphone : {{ $datas['phone_number'] }}
-Email : {{ $datas['email'] }}
+Nom : {{ $datas['last_name'] }}<br>
+Prénom : {{ $datas['first_name'] }}<br>
+Téléphone : {{ $datas['phone_number'] }}<br>
+Email : {{ $datas['email'] }}<br>
