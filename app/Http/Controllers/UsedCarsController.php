@@ -18,7 +18,7 @@ class UsedCarsController extends Controller
 
     public function display()
     {
-        $datas = $this->usedCar->with('images')->paginate(15);
+        $datas = $this->usedCar->with('images')->paginate(16);
 
         return view('occasion.index', ['datas' => $datas, 'provider' => 'selsia']);
     }
