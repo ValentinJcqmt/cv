@@ -21,8 +21,8 @@
             </div>
             <div class="col s12 m12">
                 <a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
-                   data-tooltip="Prix">
-                    {{ $datas['prix'] }}€
+                   data-tooltip="dont 5% de frais de dossier">
+                    {{ round($datas['prix'] + $datas['frais']) }}€
                 </a>
                 {{--@if( $datas['enstock'] === 'oui')--}}
                 {{--<a class="btn tooltipped col m2 margin-right-5 center-align" data-position="bottom" data-delay="50"--}}
@@ -41,7 +41,7 @@
                 </a>
                 <a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
                    data-tooltip="Kilométrage">
-                    {{ $datas['km'] }} km
+                    {{ ($datas['km'])?$datas['km']:0 }} km
                 </a>
                 {{--<a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"--}}
                 {{--data-tooltip="Transmission">--}}
@@ -53,33 +53,33 @@
         <div class="col s12 m6">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s6"><a href="#test1" class="grey-text text-grey darken-4">Informations sur le
+                    <li class="tab col s6"><a href="#main" class="grey-text text-grey darken-4">Informations sur le
                             véhicule</a></li>
-                    <li class="tab col s5"><a href="#test2" class="grey-text text-grey darken-4">Options</a></li>
+                    <li class="tab col s5"><a href="#options" class="grey-text text-grey darken-4">Options</a></li>
                     <li class="tab col s1"></li>
                 </ul>
             </div>
-            <div id="test1" class="col s12">
+            <div id="main" class="col s12">
                 <div class="collection">
-                    <a href="#!" class="collection-item">Cylindrée:<span class="badge"> {{ $datas['cc'] }}</span></a>
-                    <a href="#!" class="collection-item">Puissance:<span
+                    <a href="#" class="collection-item">Cylindrée:<span class="badge"> {{ $datas['cc'] }}</span></a>
+                    <a href="#" class="collection-item">Puissance:<span
                                 class="badge">{{ $datas['chevaux'] }}</span></a>
-                    {{--<a href="#!" class="collection-item">Nombre de portes:<span--}}
+                    {{--<a href="#" class="collection-item">Nombre de portes:<span--}}
                     {{--class="badge">{{ $datas['portes'] }}</span></a>--}}
-                    <a href="#!" class="collection-item">Couleur d'exterieur:<span
+                    <a href="#" class="collection-item">Couleur d'exterieur:<span
                                 class="badge">{{ $datas['exterieur'] }}</span></a>
-                    <a href="#!" class="collection-item">Couleur d'interieur:<span
+                    <a href="#" class="collection-item">Couleur d'interieur:<span
                                 class="badge">{{ $datas['interieur'] }}</span></a>
-                    <a href="#!" class="collection-item">Emission CO2:<span class="badge">{{ $datas['co2'] }}</span></a>
+                    <a href="#" class="collection-item">Emission CO2:<span class="badge">{{ $datas['co2'] }}</span></a>
                 </div>
 
             </div>
-            <div id="test2" class="col s12">
-                <p>
+            <div id="options" class="col s12">
+                <ul class="collection">
                     @foreach($datas['option'] as $item)
-                        {{ $item }}
+                        <li class="collection-item">{{ $item }}</li>
                     @endforeach
-                </p>
+                </ul>
             </div>
         </div>
     </div>
