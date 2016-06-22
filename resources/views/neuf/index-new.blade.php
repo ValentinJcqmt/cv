@@ -33,7 +33,7 @@
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{ str_limit($car['marque'].' '.$car['modele'], 10)}}
-                        <span class="badge">{{ $car['prix'] }}€</span>
+                        <span class="badge">{{ round($car['prix'] + $car['frais']) }}€</span>
                     </span>
                 </div>
                 <div class="card-reveal">
