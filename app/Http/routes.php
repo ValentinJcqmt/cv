@@ -31,6 +31,10 @@ Route::group(['middleware' => ['web']], function () {
     //Occasions
     Route::get('voitures-occasions', ['as' => 'used-cars', 'uses' => 'UsedCarsController@display']);
     Route::get('voitures-occasions/{slug}/{id}', ['as' => 'show-one-used', 'uses' => 'UsedCarsController@show']);
+
+    Route::get('infos-legales', function() {
+        return view('misc/infos-legales');
+    });
     /*
      * Mails
      */

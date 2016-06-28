@@ -3,3 +3,16 @@
 .button-contact{margin-top: 20px;}
 div.success-class{background-color: #66bb6a;color:white;}
 .title-homepage{font-size: 2em;text-transform: uppercase;}
+.border-top-solid {
+    border-top: solid 5px #ee6e73;
+    border-left: solid 3px #ee6e73;
+}
+
+.border-bottom-solid {
+    border-bottom: solid 5px #ee6e73;
+    border-right: solid 3px #ee6e73;
+}
+
+.info-legale span {
+    font-weight: bold;
+}
