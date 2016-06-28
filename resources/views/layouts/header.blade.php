@@ -30,7 +30,6 @@
 </div>
 
 <script type="text/javascript">
-
     setTimeout(function() {
         document.getElementById('progress-main').setAttribute('class', 'hide');
     }, 1000);
