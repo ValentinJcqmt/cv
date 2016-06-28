@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col m10 offset-m1 blue-grey" style="margin-bottom: 20px;">
-        <h1 class="title-homepage white-text text-white center-align">Nos derniers véhicules neufs</h1>
+        <h1 class="title-homepage white-text text-white center-align">Nos derniers véhicules neufs en stock</h1>
     </div>
     <div class="col m12">
         <div class="owl-carousel">

@@ -13,7 +13,7 @@
         <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Informations et conditions</h5>
             <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Informations légales</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{ url('infos-legales') }}">Informations légales</a></li>
                 <li><a class="grey-text text-lighten-3" href="{{ asset('assets/cgv/cgv-neufs.pdf') }}" target="_blank">Conditions générales de ventes véhicules neufs</a></li>
                 <li><a class="grey-text text-lighten-3" href="{{ asset('assets/cgv/cgv-occasions.pdf') }}" target="_blank">Conditions générales de ventes véhicules occasions</a></li>
             </ul>
@@ -22,7 +22,7 @@
 </div>
 <div class="footer-copyright">
     <div class="container">
-        <h5 class="center-align">Contacts : contact@eurocarline.fr & 04 86 68 80 51</h5>
+        <h5 class="center-align">Contacts & prise RDV : {{env('MAIL_CONTACT')}} & {{env('TEL_CONTACT')}}</h5>
     </div>
 </div>
 @push('scripts')
