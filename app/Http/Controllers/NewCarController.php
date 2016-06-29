@@ -20,11 +20,6 @@ class NewCarController extends Controller {
         $this->provider = 'conceptauto';
     }
 
-    public function home()
-    {
-        return view('home')->with(['datas' => $this->reader->get(), 'provider' => $this->provider]);
-    }
-
     public function display()
     {
         return view('neuf.index-new')->with(['datas' => $this->reader->get(), 'provider' => $this->provider]);
