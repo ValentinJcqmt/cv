@@ -1,12 +1,14 @@
 <div class="row">
     <div class="col m10 offset-m1 blue-grey" style="margin-bottom: 20px;">
-        <h1 class="title-homepage white-text text-white center-align">Nos derniers véhicules neufs en stock</h1>
+        <div id="title-homepage">
+            <h1 class="title-homepage white-text text-white center-align">Nos derniers véhicules neufs en stock</h1>
+        </div>
     </div>
     <div class="col m12">
         <div class="owl-carousel">
             <?php $i = 0; ?>
-            @foreach($datas as $data)
-                {{-- Limit the display --}}
+            @foreach($newCars as $data)
+                {{--Limit the display--}}
                 @if($i >= 8)
                     @continue
                 @endif
@@ -21,7 +23,8 @@
                 @endif
                 <?php $i++ ?>
                 <div class="item">
-                    <a class="carousel-item" href="{{url('voitures-neuves', [str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-'), $data['id']])}}">
+                    <a class="carousel-item"
+                       href="{{url('voitures-neuves', [str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-'), $data['id']])}}">
                         <img src="{{ asset('assets/providers/conceptauto/'.$img) }}"
                              alt="{{ str_slug($data['marque'].'-'.$data['modele'].'-'.$data['edition'], '-') }}">
                     </a>

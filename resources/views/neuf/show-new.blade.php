@@ -53,13 +53,13 @@
         <div class="col s12 m6">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s6"><a href="#main" class="grey-text text-grey darken-4">Informations sur le
+                    <li class="tab col s6"><a href="#main-neuf" class="grey-text text-grey darken-4">Informations sur le
                             véhicule</a></li>
-                    <li class="tab col s5"><a href="#options" class="grey-text text-grey darken-4">Options</a></li>
+                    <li class="tab col s5"><a href="#options-neuf" class="grey-text text-grey darken-4">Options</a></li>
                     <li class="tab col s1"></li>
                 </ul>
             </div>
-            <div id="main" class="col s12">
+            <div id="main-neuf" class="col s12">
                 <div class="collection">
                     <a href="#" class="collection-item">Cylindrée:<span class="badge"> {{ $datas['cc'] }}</span></a>
                     <a href="#" class="collection-item">Puissance:<span
@@ -74,7 +74,7 @@
                 </div>
 
             </div>
-            <div id="options" class="col s12">
+            <div id="options-neuf" class="col s12">
                 <ul class="collection">
                     @foreach($datas['option'] as $item)
                         <li class="collection-item">{{ $item }}</li>
