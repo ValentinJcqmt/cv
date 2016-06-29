@@ -1,8 +1,20 @@
-.margin-right-5{margin-right:5px;}
-.button-contact > input{margin-top:8px;}
-.button-contact{margin-top: 20px;}
-div.success-class{background-color: #66bb6a;color:white;}
-.title-homepage{font-size: 2em;text-transform: uppercase;}
+.margin-right-5 {
+    margin-right: 5px;
+}
+
+.button-contact > input {
+    margin-top: 8px;
+}
+
+.button-contact {
+    margin-top: 20px;
+}
+
+div.success-class {
+    background-color: #66bb6a;
+    color: white;
+}
+
 .border-top-solid {
     border-top: solid 5px #ee6e73;
     border-left: solid 3px #ee6e73;
@@ -17,4 +29,7 @@ div.success-class{background-color: #66bb6a;color:white;}
     font-weight: bold;
 }
 
+h1.title-homepage{
+    font-size: 3rem;
+}
 /*# sourceMappingURL=all.css.map */
