@@ -58,6 +58,7 @@ class CollectSelsiaProvider extends Command {
         //Get FTP files and save them localy
         $this->info('Processing datas from SELSiA (aka Cardiff)');
         $this->getFilesFromSelsia();
+
         //process informations to bdd
         $this->importCsvToBdd();
         $this->info(' Datas imported.');
@@ -65,16 +66,12 @@ class CollectSelsiaProvider extends Command {
         //cleaning outdated data
         $this->cleanOutdatedUsedCar();
         $this->info(' Datas cleaned.');
-
-        //manage images
-        $this->cleanOutDatedImages();
-        $this->info(' Photos imported.');
     }
 
     private function getFilesFromSelsia()
     {
         //save files
-        $csv = Storage::disk('ftp-selsia')->get('datas/tt4.csv');
+        $csv = Storage::disk('ftp-selsia')->get('datas/stockvo.csv');
         $image = Storage::disk('ftp-selsia')->get('datas/photos.txt.zip');
 
         Storage::disk('selsia')->put('list.csv', $csv);
@@ -169,13 +166,14 @@ class CollectSelsiaProvider extends Command {
         if (isset($item['ContactsTelephones']) && isset($item['ContactsTelephones2']))
             $separator = '|';
 
-        $attributes = [
-            'names'  => $item['ContactsNoms'],
-            'phones' => $item['ContactsTelephones'].$separator.$item['ContactsTelephones2'],
-            'emails' => $item['ContactsEmails'],
-        ];
-
-        $usedCar->contacts()->update($attributes);
+        if ($item['ContactsTelephones'] || $item['ContactsTelephones2']) {
+            $attributes = new Contact([
+                'names'  => $item['ContactsNoms'],
+                'phones' => $item['ContactsTelephones'].$separator.$item['ContactsTelephones2'],
+                'emails' => $item['ContactsEmails'],
+            ]);
+            $usedCar->contacts()->save($attributes);
+        }
 
         return $usedCar;
     }
@@ -205,13 +203,14 @@ class CollectSelsiaProvider extends Command {
         if (isset($item['ContactsTelephones']) && isset($item['ContactsTelephones2']))
             $separator = '|';
 
-        $attributes = new Contact([
-            'names'  => $item['ContactsNoms'],
-            'phones' => $item['ContactsTelephones'].$separator.$item['ContactsTelephones2'],
-            'emails' => $item['ContactsEmails'],
-        ]);
-
-        $usedCar->contacts()->save($attributes);
+        if ($item['ContactsTelephones'] || $item['ContactsTelephones2']) {
+            $attributes = new Contact([
+                'names'  => $item['ContactsNoms'],
+                'phones' => $item['ContactsTelephones'].$separator.$item['ContactsTelephones2'],
+                'emails' => $item['ContactsEmails'],
+            ]);
+            $usedCar->contacts()->save($attributes);
+        }
 
         return $usedCar;
     }
@@ -271,11 +270,13 @@ class CollectSelsiaProvider extends Command {
                                     'path' => public_path($this->publicImagePath).$image,
                                     'hash' => $photo[2],
                                 ]);
+                                echo 'Update row in BDD for image '.$image.' HASH = '.$photo[2];
                             }
                         }
                         continue;
                     }
                     if ($this->downloadImage($ftpPath, $image)) {
+                        //echo 'Create row in BDD for image '.$image;
                         $this->usedCarImageModel->create([
                             'used_car_id' => $usedCar['id'],
                             'name'        => $image,
@@ -309,34 +310,22 @@ class CollectSelsiaProvider extends Command {
      */
     private function downloadImage($ftpPath, $imageName)
     {
-        if (Storage::disk('ftp-selsia')->exists($ftpPath)) {
-            //get image from ftp
-            Storage::disk('selsia-public')->put('images/'.$imageName, Storage::disk('ftp-selsia')->get($ftpPath));
+        $handle = fopen(public_path('assets/providers/selsia/').'images/'.$imageName, 'w');
 
-            return true;
+        // Mise en place d'une connexion basique
+        $conn_id = ftp_connect(env('FTP_SELSIA_SERVER'));
+
+        // Identification avec un nom d'utilisateur et un mot de passe
+        ftp_login($conn_id, env('FTP_SELSIA_USERNAME'), env('FTP_SELSIA_PASSWORD'));
+
+        // Tente de téléchargement le fichier $remote_file et de le sauvegarder dans $handle
+        $dl = ftp_nb_fget($conn_id, $handle, $ftpPath, FTP_BINARY, 0);
+
+        while ($dl == FTP_MOREDATA) {
+            // Continue le téléchargement...
+            $dl = ftp_nb_continue($conn_id);
         }
-
-        return false;
-    }
-
-    private function cleanOutDatedImages()
-    {
-        $photosRaw = $this->getFormatedPhotosTxtZip();
-        $photos = array();
-        foreach ($photosRaw as $photo) {
-            $photos[] = $photo[0];
-        }
-
-        $publicImages = Storage::disk('selsia-public')->allFiles('images/');
-
-        foreach ($publicImages as $publicImage) {
-            //Cleaning file name
-            $images[] = substr($publicImage, 7);
-        }
-
-        foreach ($images as $image) {
-            if (!array_search($image, $photos))
-                Storage::disk('selsia-public')->delete('images/'.$image);
-        }
+        //echo('Downloaded '.$imageName);
+        return true;
     }
 }

@@ -78,6 +78,7 @@ return [
             'username' => env('FTP_SELSIA_USERNAME'),
             'password' => env('FTP_SELSIA_PASSWORD'),
             'root'     => '/',
+            'passive' => true,
         ],
 
         'selsia-public' => [
