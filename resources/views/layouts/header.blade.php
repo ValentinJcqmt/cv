@@ -16,10 +16,10 @@
                 <a href="{{ url('/') }}" class="brand-logo">Concept Automobile</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url('/') }}">Accueil</a></li>
-                    <li><a href="http://configurateur.conceptautomobile.fr/configuration-voiture-neuve.html" target="_blank">Configurateur</a></li>
-                    <li><a href="{{ URL::to('voitures-neuves') }}">Véhicules Neufs & Utilitaires en Stock</a></li>
-                    <li><a href="">Véhicules Occasions</a></li>
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1" alignment="bottom">Informations Pratiques</a></li>
+                    <li><a href="http://configurateur.conceptautomobile.fr/configuration-voiture-neuve.html" target="_blank">Configurateur véhicules neufs sur commande</a></li>
+                    <li><a href="{{ url('voitures-neuves') }}">Véhicules neufs & utilitaires en stock</a></li>
+                    <li><a href="{{ url('voitures-occasions') }}">Véhicules d'occasion en stock</a></li>
+                    <li><a class="dropdown-button" href="#" data-activates="dropdown1" alignment="bottom">Informations pratiques</a></li>
                 </ul>
                 <div class="progress" id="progress-main">
                     <div class="indeterminate"></div>

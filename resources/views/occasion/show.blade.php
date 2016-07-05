@@ -45,9 +45,8 @@
                 <div class="col s12 m6">
                         <div class="col s12">
                                 <ul class="tabs">
-                                        <li class="tab col s6"><a href="#test1" class="grey-text text-grey darken-4">Informations sur le
-                                                        véhicule</a></li>
-                                        <li class="tab col s5"><a href="#test2" class="grey-text text-grey darken-4">Options</a></li>
+                                        <li class="tab col s6"><a href="#test1" class="grey-text text-grey darken-4">Informations</a></li>
+                                        <li class="tab col s6"><a href="#test2" class="grey-text text-grey darken-4">Equipements</a></li>
                                         <li class="tab col s1"></li>
                                 </ul>
                         </div>
