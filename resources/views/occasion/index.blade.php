@@ -9,38 +9,31 @@
         </div>
     </div>
 
-    @foreach ($datas as $car)
+    @foreach ($datas as $data)
         <div class="col m3">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <?php
-                    $img = null;
-                    $directory = 'images/'.$car->id;
-                    $files = Storage::disk('selsia-public')->files($directory);
-                    $img = array_first($files);
-                    ?>
-
-                    @if($img)
+                    @if($data->images[0]['name'])
                         <img class="activator" style="height:180px;"
-                             src=" {{ asset('assets/providers/conceptauto/'.$img) }}"
-                             alt="{{ str_slug($car->marque.'-'.$car->modele.'-'.$car->edition, '-') }}">
+                             src=" {{ $data->images->first()->urlImage }}"
+                             alt="{{ $data->marque.' '.$data->modele.' '.$data->edition }}">
                     @else
-                        <img class="activator"  style="height:180px;" src="{{ url('assets/providers/') }}/no-image.jpg"
-                             alt="{{ str_slug($car['marque'].'-'.$car['modele'].'-'.$car['edition'], '-') }}">
+                        <img class="activator"  style="height:180px;" src="{{ url('assets/providers/no-image.jpg') }}"
+                             alt="{{ $data->marque.' '.$data->modele.' '.$data->edition }}">
                     @endif
 
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ str_limit($car->marque.' '.$car->modele, 10)}}
-                        <span class="badge">{{ $car->price }}€</span>
+                    <span class="card-title activator grey-text text-darken-4">{{ str_limit($data->marque.' '.$data->modele, 10)}}
+                        <span class="badge">{{ $data->price }}€</span>
                     </span>
                 </div>
                 <div class="card-reveal">
 
-                    <span class="card-title grey-text text-darken-4">{{ $car->marque }} {{ $car->modele }}<i
+                    <span class="card-title grey-text text-darken-4">{{ $data->marque }} {{ $data->modele }}<i
                                 class="material-icons right">X</i></span>
                     <a class="waves-effect waves-light btn"
-                       href="{{ URL::to('voitures-occasions') }}/{{ str_slug($car->marque.'-'.$car->modele.'-'.$car->edition, '-') }}/{{ $car->id }}"
+                       href="{{ $data->slug }}"
                        style="margin-top:150px;">En savoir plus</a>
                 </div>
             </div>

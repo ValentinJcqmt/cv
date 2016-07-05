@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function home()
     {
         $newCars = $this->reader->get();
-        $usedCars = $this->usedCar->orderBy('created_at','desc')->take(10)->with('images')->get();
+        $usedCars = $this->usedCar->orderBy('created_at','desc')->take(8)->with('images')->get();
 
         return view('home')->with(compact('newCars','usedCars'));
     }
