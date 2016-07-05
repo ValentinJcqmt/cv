@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel {
     protected $commands = [
         Commands\CollectSelsiaProvider::class,
         Commands\CollectConceptAutoProvider::class,
+        Commands\CleanOutdatedSelsiaImages::class,
     ];
 
     /**
@@ -31,5 +32,8 @@ class Kernel extends ConsoleKernel {
         //SELSiA (Cardiff) refresh there datas each days at 06:00
         $schedule->command('command:collect-selsia-provider')
             ->daily()->at('06:30');
+
+        $schedule->command('clean-outdated-selsia-images')
+            ->daily()->at('08:00');
     }
 }
