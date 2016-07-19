@@ -319,11 +319,12 @@ class CollectSelsiaProvider extends Command {
         ftp_login($conn_id, env('FTP_SELSIA_USERNAME'), env('FTP_SELSIA_PASSWORD'));
 
         // Tente de téléchargement le fichier $remote_file et de le sauvegarder dans $handle
+        ftp_pasv($conn_id, true);
         $dl = ftp_nb_fget($conn_id, $handle, $ftpPath, FTP_BINARY, 0);
 
         while ($dl == FTP_MOREDATA) {
-            // Continue le téléchargement...
-            $dl = ftp_nb_continue($conn_id);
+          // Continue le téléchargement...
+          $dl = ftp_nb_continue($conn_id);
         }
         //echo('Downloaded '.$imageName);
         return true;
