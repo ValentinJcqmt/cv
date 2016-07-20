@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="col m4 offset-m5" style="margin-top:10px;">
-        <a class="waves-effect waves-light btn red lighten-3" href="{{ URL::to('voitures-neuves') }}">Voir tous les véhicules <i
+        <a class="waves-effect waves-light btn red lighten-1" href="{{ URL::to('voitures-neuves') }}">Voir tous les véhicules <i
                     class="fa fa-arrow-right"></i></a>
     </div>
 </div>

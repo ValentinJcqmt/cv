@@ -19,7 +19,7 @@
             <img class="responsive-img" src="{{ asset('assets/ban_configurateur.jpg') }}">
         </div>
         <div class="col m4 offset-m5" style="margin-top:10px;">
-            <a class="waves-effect waves-light red lighten-3 btn center-align" href="http://configurateur.conceptautomobile.fr">Aller au configurateur <i class="fa fa-arrow-right"></i></a>
+            <a class="waves-effect waves-light red lighten-1 btn center-align" href="http://configurateur.conceptautomobile.fr">Aller au configurateur <i class="fa fa-arrow-right"></i></a>
         </div>
     </div>
     {{-- Voitures neuves --}}
