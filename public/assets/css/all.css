@@ -32,4 +32,106 @@ div.success-class {
 h1.title-homepage{
     font-size: 3rem;
 }
+
+body{font-family: oswald;}
+
+.card-panel.bg-red, .bg-red{background-color: #97060b;}
+body footer.bg-red{background-color: #97060b;}
+.txt-red{color: #97060b;}
+
+.btn.red:hover, .red.btn:hover{background-color: #97060b !important;}
+
+.breadcrumb{padding-top: 50px; border-bottom: solid 1px #E57373;}
+
+
+div.collection a.collection-item{color: #F44336}
+
+form.form-red input:not([type]):focus+label, form.form-red input[type=text]:focus+label, form.form-red input[type=password]:focus+label, form.form-red input[type=email]:focus+label, form.form-red input[type=url]:focus+label, form.form-red input[type=time]:focus+label, form.form-red input[type=date]:focus+label, form.form-red input[type=datetime-local]:focus+label, form.form-red input[type=tel]:focus+label, form.form-red input[type=number]:focus+label, form.form-red input[type=search]:focus+label, form.form-red textarea:focus+label{color: #F44336;}
+
+form.form-red input:not([type]), form.form-red input[type=text], form.form-red input[type=password], form.form-red input[type=email], form.form-red input[type=url], form.form-red input[type=time], form.form-red input[type=date], form.form-red input[type=datetime-local], form.form-red input[type=tel], form.form-red input[type=number], form.form-red input[type=search], form.form-red textarea{
+  margin: 15px 0;
+}
+
+form.form-red input:not([type]):focus:not([readonly]), form.form-red input[type=text]:focus:not([readonly]), form.form-red input[type=password]:focus:not([readonly]), form.form-red input[type=email]:focus:not([readonly]), form.form-red input[type=url]:focus:not([readonly]), form.form-red input[type=time]:focus:not([readonly]), form.form-red input[type=date]:focus:not([readonly]), form.form-red input[type=datetime-local]:focus:not([readonly]), form.form-red input[type=tel]:focus:not([readonly]), form.form-red input[type=number]:focus:not([readonly]), form.form-red input[type=search]:focus:not([readonly]){
+  border-bottom: 1px solid #F44336;
+  box-shadow: 0 1px 0 0 #F44336;
+
+}
+form.form-red textarea:focus:not([readonly]){outline: #F44336 auto 5px;}
+
+/**********************************************************************/
+/*
+/*    PAGINATION
+/*
+/**********************************************************************/
+ul.pagination li a{color: #9d9d9d; transition: 0.3s;}
+ul.pagination li.active{background-color: inherit; color: #97060b; border-radius: 0px;}
+ul.pagination li:not(.active) a:hover{color: #444;}
+
+/*******************************************************************/
+/*
+/*      CARDS
+/*
+/*******************************************************************/
+div.card{transition: 0.4s}
+div.card:hover{background-color: #97060b;}
+div.card:hover a div.card-content{position:relative;}
+div.card:hover a div.card-content .card-title, div.card a:hover div.card-content .badge{color: #FFFFFF !important;}
+div.card:hover a div.img-filter-red{background-color: rgba(255,0,0,0.3); transition: 0.4s;}
+div.card div.img-filter-red{background-color: rgba(255,0,0,0); position: absolute; width: 100%; height: 100%; z-index: 30;}
+
+
+/*******************************************************************/
+/*
+/*   HEADER
+/*
+/*******************************************************************/
+header div.row div.col.coordonnees{padding-left:5px;}
+.coordonnees p{margin-top: 0px; margin-bottom: 10px;}
+header div.row{ margin-bottom: 0px; }
+header div.row div.col {padding: 0 0; }
+header nav{height: 54px;}
+header nav{background-color: #FFFFFF;}
+header nav ul a:hover {background-color: #97060b; color: #FFFFFF;}
+.menu-horizontal ul{padding-left: 0px;}
+.menu-horizontal ul li{display: inline-block; width: 20%; border-right: solid 0.5px white; border-top: solid 0.5px white;}
+.menu-horizontal ul#dropdown1 li{width: 100%;}
+#dropdown1{margin-top: 50px;}
+.menu-horizontal nav #dropdown1 li a{background-color: #97060b; color: #FFFFFF; transition: 0.2s}
+.menu-horizontal nav #dropdown1 li a:hover{color: orange;}
+.menu-horizontal nav #dropdown1 li{border-bottom: solid 1px #FFFFFF;}
+
+.menu-horizontal ul li:last-child{border-right: transparent;}
+.menu-horizontal ul li a{display: block;}
+.menu-horizontal ul li a:focus{color: white; text-decoration: none; outline: none;}
+li{list-style-type: none;}
+
+#baniere{height:300px;}
+
+.menu-2{background: #97060b; /* Old browsers */ height:50px;line-height: 50px; text-align:center; font-size:13px; cursor:pointer; transition: 0.1s;}
+.menu-2:hover{height: 54px;}
+.menu-2 a{color: #FFF; padding-top: 10px; text-align: center;}
+.menu-2 a:hover{text-decoration: none; color:#C6843E;}
+.menu-horizontal{height: 54px;}
+.banderolle{/*background-image: url("nouvelle-baniere.png") ;*/ height:150px; background-repeat: no-repeat; background-color: #97060b;}
+.logo-home{height: 150px; line-height: 150px; padding-left: 10px;}
+.logo-home img{vertical-align: middle;}
+
+
+
+
+
+/**************************************************************/
+/*
+/*    FOOTER
+/*
+/**************************************************************/
+footer, footer h5, footer blockquote{font-size: 14px;}
+footer ul li{font-size: 12px;}
+footer blockquote{border-left: solid 2px #EEE;}
+.info-legale span {
+    font-weight: bold;
+}
+footer div.row{margin-bottom: 0px}
+footer ul{ margin-top: 0; margin-bottom: 10px;}
 /*# sourceMappingURL=all.css.map */

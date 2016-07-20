@@ -4,38 +4,38 @@
         {!! Breadcrumbs::render('show-one-used-car', $datas) !!}
         <div class="row">
                 <div class="col s12 m6">
-                        <div class="card blue-grey darken-1">
-                                <div class="card-content white-text">
+                        <div class="card">
+                                <div class="card-content bg-red white-text">
                                         <span class="card-title">{{ $datas->marque }} {{ $datas->model }}</span><br/>
                                         <span class="card-title">{{ ucfirst($datas->version) }}</span>
                                 </div>
 
                         </div>
                         <div class="col s12 m12">
-                                <a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
+                                <a class="red btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
                                    data-tooltip="Prix">
                                         {{ $datas->price }}€
                                 </a>
                                 {{--@if( $datas['enstock'] === 'oui')--}}
-                                {{--<a class="btn tooltipped col m2 margin-right-5 center-align" data-position="bottom" data-delay="50"--}}
+                                {{--<a class="red btn tooltipped col m2 margin-right-5 center-align" data-position="bottom" data-delay="50"--}}
                                 {{--data-tooltip="Disponibilité">--}}
                                 {{--Disponible--}}
                                 {{--</a>--}}
                                 {{--@else--}}
-                                {{--<a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"--}}
+                                {{--<a class="red btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"--}}
                                 {{--data-tooltip="Disponibilité">--}}
                                 {{--Non disponible--}}
                                 {{--</a>--}}
                                 {{--@endif--}}
-                                <a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
+                                <a class="red btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
                                    data-tooltip="Carburant">
                                         {{ $datas->energy }}
                                 </a>
-                                <a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
+                                <a class="red btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"
                                    data-tooltip="Kilométrage">
                                         {{ $datas->km }}km
                                 </a>
-                                {{--<a class="btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"--}}
+                                {{--<a class="red btn tooltipped col m2 margin-right-5" data-position="bottom" data-delay="50"--}}
                                 {{--data-tooltip="Transmission">--}}
                                 {{--{{ $datas['transmission']}}--}}
                                 {{--</a>--}}
@@ -47,7 +47,6 @@
                                 <ul class="tabs">
                                         <li class="tab col s6"><a href="#test1" class="grey-text text-grey darken-4">Informations</a></li>
                                         <li class="tab col s6"><a href="#test2" class="grey-text text-grey darken-4">Equipements</a></li>
-                                        <li class="tab col s1"></li>
                                 </ul>
                         </div>
                         <div id="test1" class="col s12">
