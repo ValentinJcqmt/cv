@@ -3,7 +3,7 @@
 @section('title', 'Infos légales')
 
 @section('content')
-    <div class="col m10 offset-m1 blue-grey" style="margin-bottom: 20px;">
+    <div class="col m10 offset-m1 bg-red" style="margin-bottom: 20px;">
         <h1 class="title-homepage white-text text-white center-align">SARL CONCEPTAUTOMOBILE</h1>
     </div>
     <div class="row info-legale">
@@ -23,4 +23,3 @@
         </div>
     </div>
 @endsection
-

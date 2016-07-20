@@ -32,4 +32,66 @@ div.success-class {
 h1.title-homepage{
     font-size: 3rem;
 }
+
+body{font-family: oswald;}
+
+.bg-red{background-color: #97060b;}
+body footer.bg-red{background-color: #97060b;}
+.txt-red{color: #97060b;}
+
+.btn.red:hover{background-color: #ed5a5a !important;}
+
+/*******************************************************************/
+/*
+/*   HEADER
+/*
+/*******************************************************************/
+header div.row div.col.coordonnees{padding-left:5px;}
+.coordonnees p{margin-top: 0px; margin-bottom: 10px;}
+header div.row{ margin-bottom: 0px; }
+header div.row div.col {padding: 0 0; }
+header nav{height: 54px;}
+header nav{background-color: #FFFFFF;}
+header nav ul a:hover {background-color: #97060b; color: #FFFFFF;}
+.menu-horizontal ul{padding-left: 0px;}
+.menu-horizontal ul li{display: inline-block; width: 20%; border-right: solid 0.5px white; border-top: solid 0.5px white;}
+.menu-horizontal ul#dropdown1 li{width: 100%;}
+#dropdown1{margin-top: 50px;}
+.menu-horizontal nav #dropdown1 li a{background-color: #97060b; color: #FFFFFF; transition: 0.2s}
+.menu-horizontal nav #dropdown1 li a:hover{color: orange;}
+.menu-horizontal nav #dropdown1 li{border-bottom: solid 1px #FFFFFF;}
+
+.menu-horizontal ul li:last-child{border-right: transparent;}
+.menu-horizontal ul li a{display: block;}
+.menu-horizontal ul li a:focus{color: white; text-decoration: none; outline: none;}
+li{list-style-type: none;}
+
+#baniere{height:300px;}
+
+.menu-2{background: #97060b; /* Old browsers */ height:50px;line-height: 50px; text-align:center; font-size:13px; cursor:pointer; transition: 0.1s;}
+.menu-2:hover{height: 54px;}
+.menu-2 a{color: #FFF; padding-top: 10px; text-align: center;}
+.menu-2 a:hover{text-decoration: none; color:#C6843E;}
+.menu-horizontal{height: 54px;}
+.banderolle{/*background-image: url("nouvelle-baniere.png") ;*/ height:150px; background-repeat: no-repeat; background-color: #97060b;}
+.logo-home{height: 150px; line-height: 150px; padding-left: 10px;}
+.logo-home img{vertical-align: middle;}
+
+
+
+
+
+/**************************************************************/
+/*
+/*    FOOTER
+/*
+/**************************************************************/
+footer, footer h5, footer blockquote{font-size: 14px;}
+footer ul li{font-size: 12px;}
+footer blockquote{border-left: solid 2px #EEE;}
+.info-legale span {
+    font-weight: bold;
+}
+footer div.row{margin-bottom: 0px}
+footer ul{ margin-top: 0; margin-bottom: 10px;}
 /*# sourceMappingURL=all.css.map */

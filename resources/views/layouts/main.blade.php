@@ -7,11 +7,10 @@
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<header>
-     @include('layouts.header')
-</header>
+<header>@include('layouts.header')</header>
 <div class="container">
     <div class="row">
         <div class="col m12">
@@ -19,7 +18,7 @@
         </div>
     </div>
 </div>
-<footer class="page-footer blue-grey darken-3">
+<footer class="page-footer bg-red darken-3">
     @include('layouts.footer')
 </footer>
 </body>

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col m10 offset-m1 blue-grey" style="margin-bottom: 20px;">
+    <div class="col m10 offset-m1 bg-red" style="margin-bottom: 20px;">
         <h1 class="title-homepage white-text text-white center-align">Nos derniers véhicules d'occasion en stock</h1>
     </div>
     <div class="col m12">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="col m4 offset-m5" style="margin-top:10px;">
-        <a class="waves-effect waves-light btn" href="{{ url('voitures-occasions') }}">Voir tous les véhicules <i
+        <a class="waves-effect waves-light btn red lighten-3" href="{{ url('voitures-occasions') }}">Voir tous les véhicules <i
                     class="fa fa-arrow-right"></i></a>
     </div>
 </div>
