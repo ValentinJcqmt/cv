@@ -1,6 +1,6 @@
 <div class="row" >
     <div class="col m12">
-        <div class="card-panel teal lighten-2">
+        <div class="card-panel bg-red">
             <h5 style="color:white;">Nous contacter concernant ce véhicule</h5>
         </div>
         @if (count($errors) > 0)
@@ -26,7 +26,7 @@
                 }, 1000);
             </script>
         @endif
-        <?php echo Form::open(array('action' => 'MailsController@sendCarMail', 'method' => 'post')); ?>
+        <?php echo Form::open(array('action' => 'MailsController@sendCarMail', 'method' => 'post', 'class' => 'form-red',)); ?>
         {{ csrf_field() }}
         <div class="col m6">
             <?php echo Form::text('first_name'); ?>
@@ -52,7 +52,7 @@
             <?php echo Form::hidden('provider', $provider); ?>
             <?php echo Form::hidden('slug', str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-')); ?>
         <div class="col m12">
-            <?php echo Form::submit('Envoyer la demande', array('class' => 'btn button-contact')); ?>
+            <?php echo Form::submit('Envoyer la demande', array('class' => 'red btn button-contact')); ?>
         </div>
 
     <?php echo Form::close(); ?>

@@ -35,13 +35,29 @@ h1.title-homepage{
 
 body{font-family: oswald;}
 
-.bg-red{background-color: #97060b;}
+.card-panel.bg-red, .bg-red{background-color: #97060b;}
 body footer.bg-red{background-color: #97060b;}
 .txt-red{color: #97060b;}
 
 .btn.red:hover, .red.btn:hover{background-color: #97060b !important;}
 
 .breadcrumb{padding-top: 50px; border-bottom: solid 1px #E57373;}
+
+
+div.collection a.collection-item{color: #F44336}
+
+form.form-red input:not([type]):focus+label, form.form-red input[type=text]:focus+label, form.form-red input[type=password]:focus+label, form.form-red input[type=email]:focus+label, form.form-red input[type=url]:focus+label, form.form-red input[type=time]:focus+label, form.form-red input[type=date]:focus+label, form.form-red input[type=datetime-local]:focus+label, form.form-red input[type=tel]:focus+label, form.form-red input[type=number]:focus+label, form.form-red input[type=search]:focus+label, form.form-red textarea:focus+label{color: #F44336;}
+
+form.form-red input:not([type]), form.form-red input[type=text], form.form-red input[type=password], form.form-red input[type=email], form.form-red input[type=url], form.form-red input[type=time], form.form-red input[type=date], form.form-red input[type=datetime-local], form.form-red input[type=tel], form.form-red input[type=number], form.form-red input[type=search], form.form-red textarea{
+  margin: 15px 0;
+}
+
+form.form-red input:not([type]):focus:not([readonly]), form.form-red input[type=text]:focus:not([readonly]), form.form-red input[type=password]:focus:not([readonly]), form.form-red input[type=email]:focus:not([readonly]), form.form-red input[type=url]:focus:not([readonly]), form.form-red input[type=time]:focus:not([readonly]), form.form-red input[type=date]:focus:not([readonly]), form.form-red input[type=datetime-local]:focus:not([readonly]), form.form-red input[type=tel]:focus:not([readonly]), form.form-red input[type=number]:focus:not([readonly]), form.form-red input[type=search]:focus:not([readonly]){
+  border-bottom: 1px solid #F44336;
+  box-shadow: 0 1px 0 0 #F44336;
+
+}
+form.form-red textarea:focus:not([readonly]){outline: #F44336 auto 5px;}
 
 /**********************************************************************/
 /*
