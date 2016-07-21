@@ -11,9 +11,10 @@
     </div>
     {{-- Lien vers configurateur --}}
     <div class="row">
-        <div class="col m10 offset-m1 bg-red" style="margin-bottom: 20px;">
+        <div class="col m10 offset-m1" style="margin-bottom: 20px;">
+          <div class="bg-red">
             <h1 id="test" class="title-homepage white-text text-white center-align">Configurez votre véhicule neuf en commande</h1>
-
+          </div>
         </div>
         <div id="image-configurateur" class="col m10 offset-m1">
             <img class="responsive-img" src="{{ asset('assets/ban_configurateur.jpg') }}">
