@@ -1,8 +1,10 @@
 <div class="row">
-    <div class="col m10 offset-m1 bg-red" style="margin-bottom: 20px;">
+    <div class="col m10 offset-m1" style="margin-bottom: 20px;">
+      <div class="bg-red">
         <h1 class="title-homepage white-text text-white center-align">Nos derniers véhicules d'occasion en stock</h1>
+      </div>
     </div>
-    <div class="col m12">
+    <div class="col m10 offset-m1">
         <div class="owl-carousel">
             @foreach($usedCars as $data)
                 {{--Limit the display--}}

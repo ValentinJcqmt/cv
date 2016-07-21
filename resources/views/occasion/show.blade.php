@@ -71,23 +71,24 @@
                         </div>
                 </div>
         </div>
-
-        <div class="col m12">
-                <div class="owl-carousel">
-                        @unless($datas->images)
-                                <img class="activator" src="{{ url('assets/providers/no-image.jpg') }}"
-                                     alt="{{ $datas->marque.' '.$datas->model.' '.$datas->edition }}">
-                        @endunless
-                        @foreach($datas->images as $image)
-                                <div class="item">
-                                        <a class="carousel-item">
-                                                <img class="activator"
-                                                     src="{{ $image->urlImage }}"
-                                                     alt="{{ $datas->marque.' '.$datas->modele.' '.$datas->edition }}">
-                                        </a>
-                                </div>
-                        @endforeach
+        <div class="row">
+            <div class="col m12">
+              <div class="owl-carousel">
+                @unless($datas->images)
+                <img class="activator" src="{{ url('assets/providers/no-image.jpg') }}"
+                alt="{{ $datas->marque.' '.$datas->model.' '.$datas->edition }}">
+                @endunless
+                @foreach($datas->images as $image)
+                <div class="item">
+                  <a class="carousel-item">
+                    <img class="activator"
+                    src="{{ $image->urlImage }}"
+                    alt="{{ $datas->marque.' '.$datas->modele.' '.$datas->edition }}">
+                  </a>
                 </div>
+                @endforeach
+              </div>
+            </div>
         </div>
 
         @include('layouts.contact')

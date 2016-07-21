@@ -82,21 +82,23 @@
         </div>
     </div>
 
-    <div class="col m12">
-        <div class="owl-carousel">
+    <div class="row">
+        <div class="col m12">
+          <div class="owl-carousel">
             @unless($files)
-                <img class="activator" src="{{ url('assets/providers/') }}/no-image.jpg"
-                     alt="{{ str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-') }}">
+            <img class="activator" src="{{ url('assets/providers/') }}/no-image.jpg"
+            alt="{{ str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-') }}">
             @endunless
             @foreach($files as $file)
-                <div class="item">
-                    <a class="carousel-item">
-                            <img class="activator"
-                                 src="{{ asset('assets/providers/conceptauto/'.$file) }}"
-                                 alt="{{ str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-') }}">
-                    </a>
-                </div>
+            <div class="item">
+              <a class="carousel-item">
+                <img class="activator"
+                src="{{ asset('assets/providers/conceptauto/'.$file) }}"
+                alt="{{ str_slug($datas['marque'].'-'.$datas['modele'].'-'.$datas['edition'], '-') }}">
+              </a>
+            </div>
             @endforeach
+          </div>
         </div>
     </div>
 
