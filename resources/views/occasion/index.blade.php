@@ -8,10 +8,10 @@
             {!! Breadcrumbs::render('used-cars') !!}
         </div>
     </div>
-    {{-- Marques Liste--}}
-    {{--@foreach ($marques as $marque)--}}
-        {{--{{$marque}}--}}
-    {{--@endforeach--}}
+
+
+    @include('layouts.filter-cars')
+
 
     @foreach ($datas as $data)
         <div class="col m3">
