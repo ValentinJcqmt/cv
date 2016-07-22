@@ -20,9 +20,15 @@ class NewCarController extends Controller {
         $this->provider = 'conceptauto';
     }
 
-    public function display()
+    public function display(Request $request)
     {
-        return view('neuf.index-new')->with(['datas' => $this->reader->get(), 'provider' => $this->provider]);
+        $filters = [
+            'marque'   => $request->marque,
+            'prix_min' => $request->prix_min,
+            'prix_max' => $request->prix_max
+        ];
+
+        return view('neuf.index-new')->with(['datas' => $this->reader->get($filters),  'marques' => $this->reader->getMarques(), 'provider' => $this->provider]);
     }
 
     public function show($slug, $id)
