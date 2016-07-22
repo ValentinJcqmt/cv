@@ -23,12 +23,12 @@ class NewCarController extends Controller {
     public function display(Request $request)
     {
         $filters = [
-            'marque'   => $request->marque,
+            'marque'   => strtolower($request->marque),
             'prix_min' => $request->prix_min,
             'prix_max' => $request->prix_max
         ];
 
-        return view('neuf.index-new')->with(['datas' => $this->reader->get($filters),  'marques' => $this->reader->getMarques(), 'provider' => $this->provider]);
+        return view('neuf.index-new')->with(['datas' => $this->reader->get($filters), 'marques' => $this->reader->getMarques(), 'provider' => $this->provider]);
     }
 
     public function show($slug, $id)

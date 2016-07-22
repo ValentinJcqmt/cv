@@ -13,6 +13,7 @@ class ConceptAutoReader {
     public function __construct()
     {
         $this->source = $this->loadSource();
+        $this->source = $this->addCustomFields();
     }
 
     public function get(array $filters)
@@ -69,11 +70,7 @@ class ConceptAutoReader {
     private function filter($filters)
     {
         //Ajout d'un attribut total_prix pour additionner le prix et les frais de dossiers
-        $collection = $this->source->map(function ($item) {
-            $item['total_prix'] = $item['prix'] + $item['frais'];
-
-            return $item;
-        });
+        $collection = $this->source;
 
         if ($filters['prix_min'] && $filters['prix_max']) {
             $collection = $collection->filter(function ($value, $key) use ($filters) {
@@ -82,7 +79,7 @@ class ConceptAutoReader {
         }
 
         if ($filters['marque'])
-            $collection = $collection->where('marque', $filters['marque']);
+            $collection = $collection->where('search_marque', $filters['marque']);
 
         return $collection;
     }
@@ -90,9 +87,19 @@ class ConceptAutoReader {
     public function getMarques()
     {
         $marques = $this->source->transform(function ($item) {
-            return $item['marque'];
+            return $item['search_marque'];
         });
 
         return $marques->unique()->sort()->values()->toArray();
+    }
+
+    private function addCustomFields()
+    {
+        return $this->source->map(function ($item) {
+            $item['total_prix'] = $item['prix'] + $item['frais'];
+            $item['search_marque'] = strtolower($item['marque']);
+
+            return $item;
+        });
     }
 }
