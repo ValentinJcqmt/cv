@@ -8,10 +8,10 @@
             {!! Breadcrumbs::render('new-cars') !!}
         </div>
     </div>
-    {{-- Marques Liste--}}
-    @foreach ($marques as $marque)
-        {{--{{$marque}}--}}
-    @endforeach
+
+
+    @include('neuf.filter-new')
+
 
     @foreach ($datas as $car)
 

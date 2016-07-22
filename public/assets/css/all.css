@@ -136,4 +136,23 @@ footer blockquote{border-left: solid 2px #EEE;}
 }
 footer div.row{margin-bottom: 0px}
 footer ul{ margin-top: 0; margin-bottom: 10px;}
+
+
+/**************************************************************/
+/*
+/*    FILTRES
+/*
+/**************************************************************/
+form select{display: block; background-color: #FFFFFF;  border: 1px solid #97060b; border-radius: 0px; text-transform: uppercase; color: #97060b; transition: 0.3s}
+form select:focus{outline: 1px solid #97060b; background-color: #FFFFFF;}
+form input{color: #97060b; font-weight: bold; text-transform: uppercase; background: transparent;}
+
+form.form-red.filter input:not([type]), form.form-red.filter input[type=text], form.form-red.filter input[type=password], form.form-red.filter input[type=email], form.form-red.filter input[type=url], form.form-red.filter input[type=time], form.form-red.filter input[type=date], form.form-red.filter input[type=datetime-local], form.form-red.filter input[type=tel], form.form-red.filter input[type=number], form.form-red.filter input[type=search], form.form-red.filter textarea{
+  margin: 0px 0;
+}
+
+form.form-red.filter i.btn.red{padding: 11px; height: auto; border-radius: 0px; color: #FFFFFF;}
+
+form.form-red.filter input[type=submit]{color: #FFFFFF; font-weight: bold; text-transform: uppercase;}
+
 /*# sourceMappingURL=all.css.map */
