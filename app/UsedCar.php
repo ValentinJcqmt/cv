@@ -24,4 +24,14 @@ class UsedCar extends Model {
     {
         return url('voitures-occasions').'/'. str_slug($this->marque.'-'.$this->model.'-'.$this->version, '-').'/'.$this->id;
     }
+
+    public function scopeOfMarque($query, $marque)
+    {
+        return $query->where('marque', $marque);
+    }
+
+    public function scopeOfPrice($query, array $price)
+    {
+        return $query->whereBetween('price', $price);
+    }
 }

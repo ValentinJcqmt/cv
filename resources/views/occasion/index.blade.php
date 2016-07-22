@@ -8,6 +8,10 @@
             {!! Breadcrumbs::render('used-cars') !!}
         </div>
     </div>
+    {{-- Marques Liste--}}
+    {{--@foreach ($marques as $marque)--}}
+        {{--{{$marque}}--}}
+    {{--@endforeach--}}
 
     @foreach ($datas as $data)
         <div class="col m3">
@@ -46,7 +50,7 @@
 
     <div class="col m12 center">
         <ul class="pagination">
-            {{ $datas->links() }}
+            {{ $datas->appends(request()->except('page'))->links() }}
         </ul>
     </div>
 
